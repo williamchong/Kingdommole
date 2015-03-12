@@ -17,7 +17,7 @@ define(['entity', 'transition', 'timer'], function(Entity, Transition, Timer) {
             this.moveSpeed = 120;
             this.walkSpeed = 100;
             this.idleSpeed = 450;
-            this.setAttackRate(800);
+            this.setAttackRate(3000);
 
             // Pathing
             this.movement = new Transition();

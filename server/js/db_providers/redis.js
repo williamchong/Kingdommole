@@ -582,5 +582,34 @@ module.exports = DatabaseHandler = cls.Class.extend({
           }
         });
       }
+    },
+    getScoreboard: function(){
+        var scoreboard = {
+            'players':[]
+        };
+        client.smembers("usr", function(err, replies){
+            var player; 
+            for(var index = 0; index < replies.length; index++){
+                var name = replies[index].toString();
+                var userKey = "u:" + name;
+                client.multi()
+                .hget(userKey, "armor") // 0
+                .hget(userKey, "weapon") // 1
+                .hget(userKey, "exp") // 2
+                .exec(
+                    (function(){
+                        var player = {};
+                        player.name = name;
+                        return function(err, replies){        
+                            player.armor = replies[0];
+                            player.weapon = replies[1];
+                            player.exp = Utils.NaN2Zero(replies[2]);
+                            scoreboard.players.push(player);
+                        };
+                    })()
+                );
+            }
+        });
+        return scoreboard;
     }
 });

@@ -1,9 +1,12 @@
+// create map in loadMap
+// run: init grid and texture(?) every 0.1 second and then call connect
+// connect: gameclient created and its callback function defined here
 
-define(['infomanager', 'bubble', 'renderer', 'map', 'animation', 'sprite',
+define(['infomanager', 'bubble', 'bubble_mc','renderer', 'map', 'animation', 'sprite',
         'tile', 'warrior', 'gameclient', 'audio', 'updater', 'transition',
         'pathfinder', 'item', 'mob', 'npc', 'player', 'character', 'chest',
         'mobs', 'exceptions', 'config', 'guild', '../../shared/js/gametypes'],
-function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedTile,
+function(InfoManager, BubbleManager, MCManager,Renderer, Map, Animation, Sprite, AnimatedTile,
          Warrior, GameClient, AudioManager, Updater, Transition, Pathfinder,
          Item, Mob, Npc, Player, Character, Chest, Mobs, Exceptions, config,
          Guild) {
@@ -20,6 +23,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.pathfinder = null;
             this.chatinput = null;
             this.bubbleManager = null;
+            this.mcManager = null;
             this.audioManager = null;
 
             // Player
@@ -73,6 +77,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             // pvp
             this.pvpFlag = false;
 
+            this.mobList = {};
+
             // sprites
             this.spriteNames = ["hand", "sword", "loot", "target", "talk", "sparks", "shadow16", "rat", "skeleton", "skeleton2", "spectre", "boss", "deathknight",
                                 "ogre", "crab", "snake", "eye", "bat", "goblin", "wizard", "guard", "king", "villagegirl", "villager", "coder", "agent", "rick", "scientist", "nyan", "priest",
@@ -82,8 +88,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                                 "item-platearmor", "item-redarmor", "item-goldenarmor", "item-flask", "item-cake", "item-burger", "morningstar", "item-morningstar", "item-firepotion"];
         },
 
-        setup: function($bubbleContainer, canvas, background, foreground, input) {
+        setup: function($bubbleContainer,$mcContainer, canvas, background, foreground, input) {
             this.setBubbleManager(new BubbleManager($bubbleContainer));
+            // MCManager should be able to assert game.client
+            this.setmcManager(new MCManager($mcContainer, this, this.client));
             this.setRenderer(new Renderer(this, canvas, background, foreground));
             this.setChatInput(input);
         },
@@ -111,6 +119,10 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         setBubbleManager: function(bubbleManager) {
             this.bubbleManager = bubbleManager;
         },
+        setmcManager: function(mcManager) {
+            this.mcManager = mcManager;
+        },
+
 
         loadMap: function() {
             var self = this;
@@ -196,12 +208,12 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     name: "Into the Wild",
                     desc: "Venture outside the village"
                 },
-                ANGRY_RATS: {
+                OH_CRABS: {
                     id: 3,
-                    name: "Angry Rats",
-                    desc: "Kill 10 rats",
+                    name: "Oh Crabs!",
+                    desc: "Kill 10 crabs",
                     isCompleted: function() {
-                        return self.storage.getRatCount() >= 10;
+                        return self.storage.getCrabCount() >= 10;
                     }
                 },
                 SMALL_TALK: {
@@ -298,11 +310,11 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     desc: "Enter into a portal",
                     hidden: true
                 },
-                RICKROLLD: {
-                    id: 20,
-                    name: "Rickroll'd",
-                    desc: "Take some singing lessons",
-                    hidden: true
+                
+                NOMICKEY: {
+                    id:21,
+                    name: "No mickey",
+                    desc: "Kill the first boss"
                 }
             };
 
@@ -427,6 +439,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
 
+        // I cannot find where is it called
         focusPlayer: function() {
             this.renderer.camera.lookAt(this.player);
         },
@@ -656,6 +669,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             });
         },
 
+        // init game objects.
+        // game client callbacks
+        // player callbacks in game client callbacks
         run: function(action, started_callback) {
             var self = this;
 
@@ -745,6 +761,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 connecting = false; // always in dispatcher mode in the build version
 
             this.client = new GameClient(this.host, this.port);
+            // mc bubble need client to submit choice
+            this.mcManager.setGameClient(this.client);
+
             this.client.fail_callback = function(reason){
                 started_callback({
                     success: false,
@@ -752,7 +771,113 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 });
                 self.started = false;
             };
+            // kindomMole
+            this.client.onReceiveMultipleChoice(function(data) {
+                self.createMC(data);
+                var mob = self.mobList[mid];
+                self.assignMCTo(mob);
 
+                ga('send', 'event', 'quiz', 'getMC', data.sid+''+data.mid+' '+data.languages);
+            });
+
+            this.client.onReceiveLongQuestion(function(data) {
+                self.app.toggleEditor();
+                log.debug(data);
+                var languages = data.languages;
+                var description = data.description;
+                lqid=data.name;
+                var content ="Language: "+languages+"<br>Task:<br>"+description+"<br>";
+                if (data.input){
+                    var input= data.input;
+                    content+="<br>Input:<br><font face=Courier>"+input+"</font><br>";
+                }
+                if (data.output){
+                    var output= data.output;
+                    content+="<br>Output:<br><font face=Courier>"+output+"</font>"
+                }
+                if (data.sample){
+                    var sample=data.sample;
+                   
+                    
+                        editor.setValue(sample);
+                    
+                }
+                 if (languages=='python'){
+                        editor.getSession().setMode("ace/mode/python");
+                    }else if (languages=='C'){
+                        editor.getSession().setMode("ace/mode/c_cpp");
+                    }
+                if (localStorage.getItem(lqid)){
+                        editor.setValue(localStorage.getItem(lqid));
+                    }
+                $("#question").html(content);
+                ga('send', 'event', 'quiz', 'getLq', languages+' '+description);
+               
+            });
+
+            this.client.onReceiveMultipleChoiceResult(function(data){
+                var mid = data.shift();
+                var sid = data.shift(); // seems useless
+                var qid = data.shift(); // seems useless
+                var result = data.shift();
+                if(result){
+                    self.showNotification('Your answer is Correct :D');
+                } else {
+                    self.showNotification('Your answer is Wrong !!!!');
+                }
+                ga('send', 'event', 'quiz', 'mcResult', mid+result);
+            });
+
+            this.client.onReceiveLongQuestionResult(function(data){
+                var mid = data.mid;
+                var a="";
+                var correct = true;
+                if (data.compile_status){
+                    var status = data.compile_status;
+                    if (data.hint) {
+                        correct=false;
+                        var hint = data.hint;
+                        a+="Status: Wrong Answer<br><br>"
+                    }else{
+                        a+="Status: "+status+"<br><br>";
+                    }
+                }
+                if (data.compile_message){
+                    var message = data.compile_message;
+                    a+="Compile Message:<br><i>"+message+"</i><br><br>";
+                }
+                if (hint) {
+                     a+="Hint:<br>"+hint+"<br><br>";
+                
+                }
+
+                if (data.result){
+                    var result = data.result;                
+                    a+="Result:<br>"
+                    for (var i = 0; i < result.length; i++) {
+                        if(result[i]!="Accept"){
+                            correct=false;
+                        }
+                        a+="Test Case "+(i+1)+": "+result[i]+"<br>";
+                    }  
+                    a+="<br>";
+                }
+                $("#result").html(a);
+                if(correct){
+                     setTimeout(function() {
+                         self.app.toggleEditor();
+                     }, 1000);
+                }
+                if (result){
+                    ga('send', 'event', 'quiz', 'lqResult', mid+''+result+''+correct);
+                } else {
+                    ga('send', 'event', 'quiz', 'lqResult', mid+''+correct);
+             
+                }
+            });
+
+            
+            
             //>>excludeStart("prodHost", pragmas.prodHost);
             var config = this.app.config.local || this.app.config.dev;
             if(config) {
@@ -811,6 +936,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             this.client.onWelcome(function(id, name, x, y, hp, armor, weapon,
                                            avatar, weaponAvatar, experience) {
                 log.info("Received player ID from server : "+ id);
+
+                ga('send', 'event', 'login', 'playerID', id);
                 self.player.id = id;
                 self.playerId = id;
                 // Always accept name received from the server which will
@@ -844,7 +971,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                                             self.player.getSpriteName(),
                                             self.player.getWeaponName(),
                                             self.player.getGuild());
-                    self.showNotification("Welcome to BrowserQuest!");
+                    self.showNotification("Welcome to KingdomMole!");
                 } else {
                     self.showNotification("Welcome Back. You are level " + self.player.level + ".");
                     self.storage.setPlayerName(name);
@@ -1033,6 +1160,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 self.player.onDeath(function() {
                     log.info(self.playerId + " is dead");
 
+                    ga('send', 'event', 'dead', 'playerID', self.playerId);
                     self.player.stopBlinking();
                     self.player.setSprite(self.sprites["death"]);
                     self.player.animate("death", 120, 1, function() {
@@ -1085,6 +1213,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 });
 
                 self.player.onInvincible(function() {
+                    ga('send', 'event', 'invincible', 'playerID', self.playerId);
                     self.invincible_callback();
                     self.player.switchArmor(self.sprites["firefox"]);
                 });
@@ -1275,16 +1404,17 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                         if(entity instanceof Item) {
                             self.removeItem(entity);
                         } else if(entity instanceof Character) {
+
                             entity.forEachAttacker(function(attacker) {
                                 if(attacker.canReachTarget()) {
                                     attacker.hit();
                                 }
                             });
                             entity.die();
+                        
                         } else if(entity instanceof Chest) {
                             entity.open();
                         }
-
                         entity.clean();
                     }
                 });
@@ -1431,10 +1561,13 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     var attacker = self.getEntityById(attackerId),
                         target = self.getEntityById(targetId);
 
-                    if(attacker && target && attacker.id !== self.playerId) {
+                    // if(attacker && target && attacker.id !== self.playerId) {
+                    // don't need to self attack message
+                    if(attacker && target) {
                         log.debug(attacker.id + " attacks " + target.id);
 
-                        if(attacker && target instanceof Player && target.id !== self.playerId && target.target && target.target.id === attacker.id && attacker.getDistanceToEntity(target) < 3) {
+                        // if(attacker && target instanceof Player && target.id !== self.playerId && target.target && target.target.id === attacker.id && attacker.getDistanceToEntity(target) < 3) {
+                        if(attacker && target instanceof Player && target.target && target.target.id === attacker.id && attacker.getDistanceToEntity(target) < 3) {
                             setTimeout(function() {
                                 self.createAttackLink(attacker, target);
                             }, 200); // delay to prevent other players attacking mobs from ending up on the same tile as they walk towards each other.
@@ -1459,14 +1592,15 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     self.player.level = level;
                     self.player.experience = exp;
                     self.updateExpBar();
-                    
+                    ga('send', 'event', 'killmob', 'playerID,kind,x,y', self.playerId+' '+kind+' '+self.player.x+' '+self.player.y);
+                   
                     self.infoManager.addDamageInfo("+"+mobExp+" exp", self.player.x, self.player.y - 15, "exp", 3000);
 
                     var expInThisLevel = self.player.experience - Types.expForLevel[self.player.level-1];
                     var expForLevelUp = Types.expForLevel[self.player.level] - Types.expForLevel[self.player.level-1];
                     var expPercentThisLevel = (100*expInThisLevel/expForLevelUp);
 
-                    self.showNotification( "Total xp: " + self.player.experience + ". " + expPercentThisLevel.toFixed(0) + "% of this level done." );
+                    self.showNotification( "Total xp: " + self.player.experience + " - " + expPercentThisLevel.toFixed(0) + "% of this level done." );
 
                     var mobName = Types.getKindAsString(kind);
 
@@ -1489,9 +1623,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     self.storage.incrementTotalKills();
                     self.tryUnlockingAchievement("HUNTER");
 
-                    if(kind === Types.Entities.RAT) {
-                        self.storage.incrementRatCount();
-                        self.tryUnlockingAchievement("ANGRY_RATS");
+                    if(kind === Types.Entities.CRAB) {
+                        self.storage.incrementCrabCount();
+                        self.tryUnlockingAchievement("OH_CRABS");
                     }
 
                     if(kind === Types.Entities.SKELETON || kind === Types.Entities.SKELETON2) {
@@ -1633,9 +1767,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
             attacker.engage(target);
 
-            if(attacker.id !== this.playerId) {
+            // if(attacker.id !== this.playerId) {
                 target.addAttacker(attacker);
-            }
+            // }
         },
 
         /**
@@ -1685,51 +1819,6 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         },
 
         /**
-         *
-         */
-        makePlayerAttackNext: function()
-        {
-
-            pos = {
-                x: this.player.gridX,
-                y: this.player.gridY
-            };
-            switch(this.player.orientation)
-            {
-                case Types.Orientations.DOWN:
-                    pos.y += 1;
-                    this.makePlayerAttackTo(pos);
-                    break;
-                case Types.Orientations.UP:
-                    pos.y -= 1;
-                    this.makePlayerAttackTo(pos);
-                    break;
-                case Types.Orientations.LEFT:
-                    pos.x -= 1;
-                    this.makePlayerAttackTo(pos);
-                    break;
-                case Types.Orientations.RIGHT:
-                    pos.x += 1;
-                    this.makePlayerAttackTo(pos);
-                    break;
-
-                default:
-                    break;
-            }
-        },
-
-        /**
-         *
-         */
-        makePlayerAttackTo: function(pos)
-        {
-            entity = this.getEntityAt(pos.x, pos.y);
-            if(entity instanceof Mob) {
-                this.makePlayerAttack(entity);
-            }
-        },
-
-        /**
          * Moves the current player to a given target location.
          * @see makeCharacterGoTo
          */
@@ -1766,14 +1855,13 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
 
-        /**
-         *
-         */
-        makePlayerAttack: function(mob) {
-            this.createAttackLink(this.player, mob);
-            this.client.sendAttack(mob);
+        makePlayerPrepareAttack: function(mob) {
+             if(mob) {
+                this.player.setTarget(mob);
+                this.player.follow(mob);
+                this.client.sendQuestionRequest(mob.id);
+            }
         },
-
         /**
          *
          */
@@ -2118,12 +2206,12 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         {
             var pos = this.getMouseGridPosition();
 
-            if(pos.x === this.previousClickPosition.x
-            && pos.y === this.previousClickPosition.y) {
-                return;
-            } else {
+            //if(pos.x === this.previousClickPosition.x
+            //&& pos.y === this.previousClickPosition.y) {
+             //   return;
+            //} else {
                 this.previousClickPosition = pos;
-            }
+            //}
 
             this.processInput(pos);
         },
@@ -2134,6 +2222,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
         processInput: function(pos) {
             var entity;
 
+            // we may add hovering MC button
             if(this.started
             && this.player
             && !this.isZoning()
@@ -2144,7 +2233,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 entity = this.getEntityAt(pos.x, pos.y);
 
         	    if(entity instanceof Mob || (entity instanceof Player && entity !== this.player && this.player.pvpFlag && this.pvpFlag)) {
-                    this.makePlayerAttack(entity);
+                    // how to make player goto?
+                    this.makePlayerPrepareAttack(entity);
                 }
                 else if(entity instanceof Item) {
                     this.makePlayerGoToItem(entity);
@@ -2373,6 +2463,7 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 this.currentZoning = new Transition();
             }
             this.bubbleManager.clean();
+            this.mcManager.clean();
             this.client.sendZone();
         },
 
@@ -2401,8 +2492,12 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
 
         resetZone: function() {
             this.bubbleManager.clean();
+            this.mcManager.clean();
             this.initAnimatedTiles();
             this.renderer.renderStaticCanvases();
+            if($('#editor').hasClass('active')){
+                    this.app.toggleEditor();
+                 }
         },
 
         resetCamera: function() {
@@ -2513,6 +2608,48 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
         },
 
+        createMC: function(mc) {
+            this.mcManager.create(mc);
+        },
+
+        destroyMC: function(id) {
+            this.mcManager.destroyBubble(id);
+        },
+
+        assignMCTo: function(character) {
+            var bubble = this.mcManager.getBubbleById(character.id);
+
+            if(bubble) {
+                var s = this.renderer.scale,
+                    t = 16 * s, // tile size
+                    x = ((character.x - this.camera.x) * s),
+                    w = parseInt(bubble.element.css('width')) + 24,
+                    offset = (w / 2) - (t / 2),
+                    offsetY,
+                    y;
+
+                if(character instanceof Npc) {
+                    offsetY = 0;
+                } else {
+                    if(s === 2) {
+                        if(this.renderer.mobile) {
+                            offsetY = 0;
+                        } else {
+                            offsetY = 15;
+                        }
+                    } else {
+                        offsetY = 12;
+                    }
+                }
+
+                y = ((character.y - this.camera.y) * s) - (t * 2) - offsetY;
+
+                bubble.element.css('left', x - offset + 'px');
+                bubble.element.css('top', y + 'px');
+            }
+        },
+
+
         respawn: function() {
             log.debug("Beginning respawn");
 
@@ -2538,6 +2675,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             }
 
             log.debug("Finished respawn");
+            ga('send', 'event', 'respawn', 'playerID', self.playerId);
+                   
         },
 
         onGameStart: function(callback) {
@@ -2779,7 +2918,14 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 }
             }
         },
-
+        submitLQ: function(text){
+            //send code and languages
+            this.client.sendLongQuestionAnswer(text, 0);
+            localStorage.setItem(lqid, text);
+        },
+        escapeLQ: function(text){
+            localStorage.setItem(lqid, text);
+        },
 	    tryLootingItem: function(item) {
             try {
                 this.player.loot(item);

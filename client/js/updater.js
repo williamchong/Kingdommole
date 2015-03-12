@@ -276,6 +276,7 @@ define(['character', 'timer'], function(Character, Timer) {
         updateChatBubbles: function() {
             var t = this.game.currentTime;
 
+            this.game.mcManager.update(t);
             this.game.bubbleManager.update(t);
         },
 

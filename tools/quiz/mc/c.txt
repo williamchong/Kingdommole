@@ -1,0 +1,674 @@
+@section 1
+#common functions and data type
+$C
+
+?What gets printed?
+-<pre>printf("Hello World\n");</pre>
+!Hello World(newline)
+*Hello World\n
+*Error
+*Hello World(tab)
+
+?printf() is defined in
+!stdio.h
+*string.h
+*printf.h
+*cstdio
+*math.h
+*assert.h
+*errno.h
+
+?scanf() is defined in
+!stdio.h
+*string.h
+*scanf.h
+*stdlib.h
+*math.h
+*assert.h
+*errno.h
+
+?memset() is defined in
+!string.h
+*stdio.h
+*scanf.h
+*stdlib.h
+*math.h
+*assert.h
+*errno.h
+
+?memcmp() is defined in
+!string.h
+*stdio.h
+*scanf.h
+*stdlib.h
+*math.h
+*assert.h
+*errno.h
+
+?memset() is defined in
+!string.h
+*stdio.h
+*scanf.h
+*stdlib.h
+*math.h
+*assert.h
+*errno.h
+
+?malloc() is defined in
+!stdlib.h
+*stdio.h
+*string.h
+*scanf.h
+*math.h
+*assert.h
+*errno.h
+
+?Which one is a reserved word?
+!auto
+!break
+!case
+!char
+!const
+!continue
+!default
+!do
+!double
+!else
+!enum
+!extern
+!float
+!for
+!goto
+!if
+!int
+!long
+!register
+!return
+!short
+!signed
+!sizeof
+!static
+!struct
+!switch
+!typedef
+!union
+!unsigned
+!void
+!volatile
+!while
+*then
+*end
+*try
+*catch
+*pass
+*raise
+*throw
+*throws
+*delete
+*new
+*max
+*global
+*local
+*with
+*except
+*elif
+
+?Which one is not a reserved word?
+*auto
+*break
+*case
+*char
+*const
+*continue
+*default
+*do
+*double
+*else
+*enum
+*extern
+*float
+*for
+*goto
+*if
+*int
+*long
+*register
+*return
+*short
+*signed
+*sizeof
+*static
+*struct
+*switch
+*typedef
+*union
+*unsigned
+*void
+*volatile
+*while
+!then
+!end
+!try
+!catch
+!pass
+!raise
+!throw
+!throws
+!delete
+!new
+!max
+!global
+!local
+!with
+!except
+!elif
+
+
+?Which one is a valid variable name?
+!then
+!end
+!try
+!catch
+!pass
+!raise
+!throw
+!throws
+!delete
+!new
+!max
+!global
+!local
+!with
+!except
+!elif
+!_1_abc_1
+!URL
+!Int
+!c
+!_
+!A100xC200
+!tab
+!include
+*Domain-name
+*Hong Kong
+*1_1
+*for
+*@cuhk
+*hi!
+*auto
+*break
+*case
+*char
+*const
+*continue
+*default
+*do
+*double
+*else
+*enum
+*extern
+*float
+*for
+*goto
+*if
+*int
+*long
+*register
+*return
+*short
+*signed
+*sizeof
+*static
+*struct
+*switch
+*typedef
+*union
+*unsigned
+*void
+*volatile
+*while
+*isVaild?
+*a.c
+*hi!
+
+?Which one is not a valid variable name?
+!isVaild?
+!a.c
+!hi!
+!Domain-name
+!Hong Kong
+!1_1
+!for
+!@cuhk
+!hi!
+!auto
+!break
+!case
+!char
+!const
+!continue
+!default
+!do
+!double
+!else
+!enum
+!extern
+!float
+!for
+!goto
+!if
+!int
+!long
+!register
+!return
+!short
+!signed
+!sizeof
+!static
+!struct
+!switch
+!typedef
+!union
+!unsigned
+!void
+!volatile
+!while
+*then
+*end
+*try
+*catch
+*pass
+*raise
+*throw
+*throws
+*delete
+*new
+*max
+*global
+*local
+*with
+*except
+*elif
+*_1_abc_1
+*URL
+*Int
+*c
+*_
+*A100xC200
+*tab
+*include
+
+?Which one is not a basic data type?
+!string
+!byte
+!double double
+!bool
+!boolean
+*int
+*long long
+*char
+*unsigned int
+*unsigned
+*double
+*long double
+
+?Which one is a basic data type?
+!int
+!long long
+!char
+!unsigned int
+!unsigned
+!double
+!long double
+*string
+*byte
+*double double
+*bool
+*boolean
+
+@ section 2
+#Calculation and dry run
+$C
+
+?Which line of code is invalid?
+!printf("HiHi")
+*for(;;);
+*int a,b,c;
+*a = b = c;
+
+?What gets printed?
+-<pre>i = 4;
+-printf("%d",i++);</pre>
+!4
+*5
+*%d
+*6
+
+?What gets printed?
+-<pre>i = 4;
+-printf("%d",++i);</pre>
+!5
+*4
+*%d
+*6
+
+?What gets printed?
+-<pre>i = 4;
+-printf("%d",--i);</pre>
+!3
+*4
+*5
+*%d
+
+?What gets printed?
+-<pre>i = 4;
+-printf("%d",+-i);</pre>
+!-4
+*4
+*%d
+*error
+
+?What gets printed?
+-<pre>printf("%d",1+2*3);</pre>
+!7
+*9
+*%d
+*1+2*3
+
+?What gets printed?
+-<pre>printf("%4.2f",3.14159);</pre>
+!3.14
+*3.14159
+*3.1415
+*%4.2f
+
+?What gets printed?
+-<pre>printf("%%");</pre>
+!%
+*%%
+*Error
+*(^.^)
+
+?Which value is returned by getchar() when there is no more input?
+!EOF
+*NULL
+*NONE
+*END
+
+?Which one is not a reserved word in C?
+!elseif
+*if
+*goto
+*switch
+
+?Which one is not a reserved word in C?
+!catch
+*register
+*goto
+*volatile
+
+?What gets printed?
+-<pre>printf("\t\\n");</pre>
+!(tab)\(newline)
+*(tab)\n
+*\t\\n
+*(tab)(newline)
+
+?What gets printed?
+-<pre>printf("\t\n");</pre>
+*(tab)\(newline)
+*(tab)\n
+*\t\\n
+!(tab)(newline)
+
+@section 3
+#if then else and boolean expression
+$C
+
+?What gets printed?
+-<pre>int bool = (1+1%2) == 0;
+-if(bool) printf('true');
+-</pre>
+!nothing
+*true
+*error
+*false
+
+?What gets printed?
+-<pre>int bool = (1+1%2) == 0;
+-if(!bool) printf('true');
+-</pre>
+!true
+*nothing
+*error
+*false
+
+?What gets printed?
+-<pre>int bool = ((1+1)%2) == 0;
+-if(bool) printf('true');
+-</pre>
+!true
+*error
+*nothing
+*false
+
+?What gets printed?
+-<pre>int bool = ((1+1)%2) == 0;
+-if(!bool) printf('true');
+-</pre>
+!nothing
+*error
+*true
+*false
+
+?What gets printed?
+-<pre>char true = 1;
+-char false = 0
+-if(true and false) printf('true');
+-</pre>
+!error
+*nothing
+*true
+*false
+
+?What gets printed?
+-<pre>char true = 1;
+-char false = 0
+-if(true or false) printf('true');
+-</pre>
+!error
+*nothing
+*true
+*false
+
+?What gets printed?
+-<pre>char true = 1;
+-char false = 0
+-if(true && false) printf('true');
+-</pre>
+!nothing
+*error
+*true
+*false
+
+?What gets printed?
+-<pre>char true = 1;
+-char false = 0
+-if(true || false) printf('true');
+-</pre>
+*nothing
+*error
+!true
+*false
+
+?What gets printed?
+-<pre>char true = 1;
+-char false = 0
+-if(true && !!false) printf('true');
+-</pre>
+!nothing
+*error
+*true
+*false
+
+?What gets printed?
+-<pre>if(true)
+-    printf("Hello");
+-else
+-    printf("World");</pre>
+!compile error
+*Hello
+*World
+*HelloWorld
+
+?What gets printed?
+-<pre>if(1 == 1)
+-    printf("Hello");
+-else
+-    printf("World");</pre>
+!Hello
+*compile error
+*World
+*HelloWorld
+
+?What gets printed?
+-<pre>if(1 == 2);
+-    printf("Hello");
+-printf("World");</pre>
+!HelloWorld
+*compile error
+*Hello
+*World
+
+?What gets printed?
+-<pre>char c = '1';
+-if(c == 1) printf("BINGO");</pre>
+!Nothing
+*BINGO
+*error
+*^o^
+
+?What gets printed?
+-<pre>char c = 1;
+-if(c == 1) printf("BINGO");</pre>
+!BINGO
+*Nothing
+*error
+*^o^
+
+?What gets printed?
+-<pre>if(true)
+-printf("This");
+-printf("is easy");</pre>
+!Syntax Error
+*This
+*is easy
+*This is easy
+
+?What gets printed?
+-int i = 0;
+-if(1)
+-printf("It works!");
+-
+!It works!
+*Nothing
+*Syntax Error
+*I don't know
+
+
+@section 4
+#loops
+$C
+
+?How many 'hi' gets printed?
+-<pre>int i = 0;
+-while(i < 0){
+-    printf("hi");
+-}</pre>
+!0
+*2
+*1
+*infinite
+
+@section 5
+#function, scopes
+$C
+
+?What gets printed?
+-<pre>int i = 0;
+-{
+-    int i = 10;
+-    i = i*2;
+-}
+-printf("%d",i);</pre>
+!0
+*10
+*20
+*Error
+
+?What get printed??
+-<pre>int a = 100;
+-void f(int a){
+-    a = 0;
+-}
+-int main(){
+-	f(a);
+-	printf("%d\n",a);
+-}</pre>
+!100
+*0
+*error
+*garbage value
+
+?What get printed??
+-<pre>int a = 100;
+-void f(int a){
+-    a = 0;
+-}
+-int main(){
+-	f(a);
+-	printf("%d\n",a);
+-}</pre>
+!100
+*0
+*error
+*garbage value
+
+@section 6
+#bit operations, pointers
+$C
+
+?What gets printed?
+-<pre>printf("%d",2^3);</pre>
+!1
+*8
+*6
+*Error
+
+?What gets printed?
+-<pre>printf("%d",2&3);</pre>
+!2
+*5
+*6
+*Error
+
+?What gets printed?
+-<pre>printf("%d",(-1)&3);</pre>
+!3
+*2
+*-3
+*Error
+
+?What gets printed?
+-<pre>printf("%d",~(-1));</pre>
+!0
+*1
+*-1
+*Error
+
+?What gets printed?
+-<pre>printf("%d",~(-2));</pre>
+!1
+*2
+*-1
+*Error

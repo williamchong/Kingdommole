@@ -1,0 +1,285 @@
+#In current stage, each section can only have one long question
+#It is one-base, section zero used to prevent question undefine
+
+@section 0
+*C0
+?Print "Hello World" with a newline character !!!
+>Try submiting the sample code directly!
+<Hello World<br/>
+$C
+
+@section 1
+*C1
+?Print "\\I will save the World//" with a newline character !!!
+>Did you escape the slashes?
+<\\I will save the World//<br/>
+$C
+
+@section 2
+*C2
+?Print "I am 100% sure it is easy" with a newline character !!!
+>Did you escape the %?
+<I am 100% sure it is easy<br/>
+$C
+
+@section 3
+*C3
+?Read two integers from stdin and print out the sum of the integers !!!
+>1 2<br/>
+<3<br/>
+$C
+
+@section 4
+*C4
+?Read two numbers a, b and print the numbers from a to b with a new line character.<br/> Replace number divisible by three by the word 'Fizz' and number divisible <br/>by five by the word 'Buzz'. Numbers divisible by both become FizzBuzz.
+>10 15<br/>
+<Buzz
+-11
+-Fizz
+-13
+-14
+-FizzBuzz
+-
+$C
+
+@section 5
+*C5
+?Read a sequence of numbers which represent years<br/>If it is a leap year then print 'True',<br/>else print 'False'. Don't forget a newline character.
+-Stop when there is no more input.
+-(A leap year is a multiple of 4, and if it is a multiple of 100, <br/>it must also be a multiple of 400.
+>2000
+-2100
+-2012
+<True
+-False
+-True
+-
+$C
+
+@section 6
+*ESTR1002Y1415L3Q4
+?Please	solve a quadratic equation in form of ax^2 + bx + c = 0, where a, b, and c are integers. 
+-Note that in the test cases, both a and b cannot be 0 at the same time.
+-Please rounded the solution to two decimal places.
+-If there are two solutions, print the bigger one first
+-If there are one solution, print it out.
+-If there are no real solution, print 'no solution'
+>2 -6 3
+-
+<2.37 0.63
+-
+$C
+
+@section 7
+*ESTR1002Y1415L3Q5
+?First number is a decimal number, the second number is the first number in Base X.
+-Input contain digits only, and the range of input is in range [1,999] 
+-Find X. If there is no such X, print "CHEATED"
+>31 1
+-
+<CHEATED
+-
+$C
+
+@section 8
+
+*ESTR1002Y1415L4Q5
+?Given a positive number.
+-:If the input is a prime number, print "yes". Else, print "no".
+>2147483648
+-
+<no
+-
+$C
+
+@section 9
+
+*ESTR1002Y1415L4Q6
+?Print a list of all prime factors of the input number,
+-in an ascending order.
+>36
+-
+<36: 2 2 3 3
+-
+$C
+
+@section 10
+
+*ESTR1002Y1415L3Q1
+?Write a program to read a decimal integer i from the user and print an analysis of the input.
+-If the number is zero, print "zero" and done.
+-If the number is positive, print "+ve" followed by checking whether the number is even or odd 
+-Print "even" or "odd" accordingly.
+-If the number is negative, print "-ve" followed by printing the unit (last) digit of the number.
+>25383
+-
+<+ve
+-odd
+-
+$C
+
+*ESTR1002Y1415L3Q2
+?Write a program  to perform blood-type  matching. It  reads two  decimal integers, 
+-coded to represent a donor's blood-type and an acceptor's blood-type.
+-It prints an analysis of the inputs.
+-Input coding: 0 means O-type; 1 means A-type; 2 means B-type; 3 means AB-type
+-Rules:
+-O-type acceptors may ONLY receive blood transfer from O-type donors.
+-A-type acceptors may receive blood transfer from O-type or A-type donors.
+-B-type acceptors may receive blood transfer from O-type or B-type donors.
+-AB-type acceptors may receive blood transfer from ALL types of donors.
+-Determine if the transfer is feasible, print "yes" or "no" accordingly.
+>Accpetor: 0
+-Donor: 0
+-
+<yes
+-
+$C
+
+*ESTR1002Y1415L3Q3
+?The program obtains a latitude reading in degree (緯度) from the user and 
+-determines the geographical region according to the following classification:
+-Input latitude (in degree) Classification
+-> +90 Invalid
+-+90 North Pole
+-(+66.5, +90) Arctic Region
+-+66.5 Arctic Circle
+-(+23.5, +66.5) Northern Middle Latitude
+-+23.5 Tropic of Cancer
+-(0, +23.5) Northern Tropical Zone
+-0 Equator
+-(-23.5, 0) Southern Tropical Zone
+--23.5 Tropic of Capricorn
+-(-66.5, -23.5) Southern Middle Latitude
+--66.5 Antarctic Circle
+-(-90, -66.5) Antarctic Region
+--90 South Pole
+-< -90 Invalid
+>51.300
+-
+<Northern Middle Latitude
+-
+$C
+
+@section 11
+
+*ESTR1002Y1415L4Q1
+?Write a program to read a positive integer x. Then we read an integer which is a certain multiple of x.
+-If the input is correct, print “good!” and exit  the program. 
+-Otherwise, if  the input is not a multiple of x, print out “try again” 
+-and repeat the process again from the beginning.
+>5
+-9
+-2
+-44
+-
+<try again
+-good!
+-
+$C
+
+*ESTR1002Y1415L4Q2
+?Write a program to read a positive integer x. check if x is within the range of 2 to 100. 
+-If x is not within the range of 2 to 100, print out “2 to 100 please” 
+-Then we read an integer which is a certain multiple of x.
+-and read another integer for x again. 
+-If the input is correct, print “good!” and exit  the program. 
+-Otherwise, if  the input is not a multiple of x, print out “try again” 
+-and repeat the process again from the beginning.
+>15
+-63
+-200
+-14
+-28
+-
+<try again
+-2 to 100 please
+-good!
+-
+$C
+
+*ESTR1002Y1415L4Q3
+?Write a program to input 3 integers a, b, c in range of 1 to 20 consecutively. 
+-If b is greater than or equal to a, the program should print out integers  from a to b (inclusive) 
+-one by one, separated by  comma. If  the integer  to  be  printed out is  divisible  by c, instead of 
+-printing out the integer, print out “*”. 
+-If a is greater than b, just print out “no numbers” and end the program.
+>5 11 2
+-
+<5,*,7,*,9,*,11
+-
+$C
+
+*ESTR1002Y1415L3Q4
+?Write a program to read an integer n, where n ≥ 2, and compute the following formula:
+-(2*2-5)+(3*3-5)+...+[(n-1)*(n-1)-5]+(n*n-5)
+-You can assume that all the inputs must be integers.  But if the user enters an integer less than two, 
+-the program will print “invalid input”. 
+>5
+-
+<34
+-
+$C
+
+@section 12
+
+*C6
+?Read a matrix of integers, find the maximum number of each column, then output the smallest number among them.
+>3 4
+-4 2 3 9
+-1 5 6 9
+-2 3 4 9
+<4
+-
+$C
+
+@section 13
+
+*C1
+?Print "\\I will save the World//" with a newline character !!!
+>
+<\\I will save the World//<br/>
+$Python
+
+*C2
+?Print "I am 100% sure it is easy" with a newline character !!!
+>
+<I am 100% sure it is easy<br/>
+$Python
+
+*ESTR1002Y1415L3Q1
+?Write a program to read a decimal integer i from the user and print an analysis of the input.
+-If the number is zero, print "zero" and done.
+-If the number is positive, print "+ve" followed by checking whether the number is even or odd 
+-Print "even" or "odd" accordingly.
+-If the number is negative, print "-ve" followed by printing the unit (last) digit of the number.
+>25383
+-
+<+ve
+-odd
+-
+$Python
+
+@section 14
+# new question, have not added in judge
+
+?Mole has finished eating in a restaurant, help him to find out the cost of the meal.
+-The total cost of meal = (sum of cost of dishes) * (1+tip)
+-Correct the cost to 1 decimal place.
+-(The input order of the costs of dishes and tips is not fixed)
+>tip: 0.1
+-dishes: 20 3 8
+-
+<Mole has to pay $34.1
+-
+$Python
+
+?Mole wants to know the day of week after a few days
+-Read a string D and a number N.
+-Please print the day of week of N days after D.
+-(week of days: Mon, Tue, Wed, Thu, Fri, Sat and Sun)
+>Mon 3
+-
+<Thu
+-
+$Python

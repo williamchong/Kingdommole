@@ -3,8 +3,9 @@ var Utils = require('./utils');
 var Formulas = {};
 
 Formulas.dmg = function (weaponLevel, armorLevel) {
-    var dealt = weaponLevel * Utils.randomInt(5, 10);
-    var absorbed = armorLevel * Utils.randomInt(1, 3);
+    //weaponlevel is useless now, every monster have hp = 1
+    var dealt = weaponLevel * 5 + Utils.randomInt(weaponLevel,weaponLevel);
+    var absorbed = armorLevel * 3 + Utils.randomInt(0, armorLevel);
     var dmg =  dealt - absorbed;
 
     //console.log("abs: "+absorbed+"   dealt: "+ dealt+"   dmg: "+ (dealt - absorbed));
@@ -16,7 +17,7 @@ Formulas.dmg = function (weaponLevel, armorLevel) {
 };
 
 Formulas.hp = function (armorLevel) {
-    var hp = 80 + ((armorLevel - 1) * 30);
+    var hp = 100 + ((armorLevel - 1) * 50);
     return hp;
 };
 

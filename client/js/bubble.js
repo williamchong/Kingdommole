@@ -1,4 +1,5 @@
 
+
 define(['jquery', 'timer'], function($, Timer) {
 
     var Bubble = Class.extend({

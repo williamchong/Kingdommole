@@ -1,19 +1,4 @@
 <!DOCTYPE html>
-<!--
-
- , __                                   __
-/|/  \                                 /  \
- | __/ ,_    __           ,   _   ,_  | __ |          _   , _|_
- |   \/  |  /  \_|  |  |_/ \_|/  /  | |/  \|  |   |  |/  / \_|
- |(__/   |_/\__/  \/ \/   \/ |__/   |_/\__/\_/ \_/|_/|__/ \/ |_/
-
-Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworkshop.fr
-
-* Client libraries used: RequireJS, Underscore.js, jQuery, Modernizr
-* Server-side: Node.js, Socket.io
-* Should work in latest versions of Firefox, Chrome, Safari, Opera, Safari Mobile and Firefox for Android
-
- -->
 <html lang="en">
 	<head>
         <meta charset="utf-8">
@@ -21,12 +6,13 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
         <link rel="icon" type="image/png" href="img/common/favicon.png">
-        <meta property="og:title" content="BrowserQuest">
+        <meta property="og:title" content="KingdomMole">
         <meta property="og:type" content="website">
-        <meta property="og:url" content="http://browserquest.mozilla.org/">
-        <meta property="og:image" content="http://browserquest.mozilla.org/img/common/promo-title.jpg">
-        <meta property="og:site_name" content="BrowserQuest">
-        <meta property="og:description" content="Play Mozilla's BrowserQuest, an HTML5 massively multiplayer game demo powered by WebSockets!">
+        <meta property="og:url" content="http://kingdommole.com">
+        <meta property="og:image" content="http://kingdommole.com/img/common/promo-title.jpg">
+        <meta property="og:site_name" content="KingdomMole">
+        <meta property="og:description" content="Go on a MMO adventure and train your coding skills!">
+
         <link rel="stylesheet" href="css/main.css" type="text/css">
         <link rel="stylesheet" href="css/achievements.css" type="text/css">
 
@@ -51,19 +37,19 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                 </script>
         <![endif]-->
         <script src="js/detect.js" type="text/javascript"></script>
-        <title>BrowserQuest</title>
+
+        <title>KingdomMole</title>
 	</head>
     <!--[if lt IE 9]>
 	<body class="intro upscaled">
     <![endif]-->
-    <a href="https://github.com/browserquest/BrowserQuest"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 	<body class="intro">
 	    <noscript>
 	       <div class="alert">
-	           You need to enable JavaScript to play BrowserQuest.
+	           You need to enable JavaScript to play KingdomMole.
 	       </div>
 	    </noscript>
-	    <a id="moztab" class="clickable" target="_blank" href="http://www.mozilla.org/"></a>
+	    <a id="moztab" class="clickable" target="_blank" href="http://www.cse.cuhk.edu.hk/~tywong"></a>
 	    <div id="intro">
 	        <h1 id="logo">
 	           <span id="logosparks">
@@ -99,7 +85,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     <article id="loadcharacter">
           	           <h1>
           	               <span class="left-ornament"></span>
-          	               BrowserQuest
+          	               KingdomMole
           	               <span class="right-ornament"></span>
                          </h1>
                          <form action="none" method="get" accept-charset="utf-8">
@@ -119,7 +105,9 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
           	           <h1>
           	               <span class="left-ornament"></span>
                            You need to accept the following terms of usage before creating a new character.<br>
-                           None right now - just Continue!<br><br>
+                        This is our final year project, have fun while testing your programming knowledge!<br>
+			Do not forkbomb us!<br>
+			This project is a fork of BrowserQuest.<br><br>
           	               <span class="right-ornament"></span>
                          </h1>
                          <div id="continue">
@@ -133,11 +121,16 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
         	            <h1>
          	               <span class="left-ornament"></span>
          	               <span class="title">
-         	                   Made for Mozilla by <a target="_blank" class="stroke clickable" href="http://www.littleworkshop.fr/">Little Workshop</a>
+         	                   Original game by <a target="_blank" class="stroke clickable" href="http://www.littleworkshop.fr/">Little Workshop</a>
          	               </span>
          	               <span class="right-ornament"></span>
                         </h1>
                         <div id="authors">
+                            <div id="guillaume">
+                                <div class="avatar"></div>
+                                Quiz Systems by
+                                <a class="stroke clickable" target="_blank" href="https://www.facebook.com/SandboxMole">Sunday Ku, William Chong</a>
+                            </div>
                             <div id="guillaume">
                                 <div class="avatar"></div>
                                 Pixels by
@@ -145,7 +138,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                             </div>
                             <div id="franck">
                                 <div class="avatar"></div>
-                                Code by
+                                Original BrowserQuest Code by
                                 <a class="stroke clickable" target="_blank" href="http://twitter.com/whatthefranck">Franck Lecollinet</a>
                             </div>
                         </div>
@@ -163,28 +156,27 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
         	            <h1>
          	               <span class="left-ornament"></span>
          	               <span class="title">
-         	                   What is BrowserQuest?
+         	                   What is KingdomMole?
          	               </span>
          	               <span class="right-ornament"></span>
                         </h1>
                         <p id="game-desc">
-                            BrowserQuest is a multiplayer game inviting you to explore a
-                            world of adventure from your Web browser.
+                            KingdomMole is a fork of BrowserQuest, but instead of just clicking to attack, there are extra coding Q&amp;A and pratice.
                         </p>
                         <div class="left">
                             <div class="img"></div>
                             <p>
-                                This demo is powered by HTML5 and WebSockets, which allow for real-time gaming and apps on the Web.
+                                This demo is powered by HTML5 and Docker, which allow safe and real-time code compiling and answer checking.
                             </p>
                             <span class="link">
                                 <span class="ext-link"></span>
-                                <a target="_blank" class="clickable" href="http://hacks.mozilla.org/2012/03/browserquest/">Learn more</a> about the technology
+                                <a target="_blank" class="clickable" href="https://www.docker.com/">Learn more</a> about the technology
                             </span>
                         </div>
                         <div class="right">
                             <div class="img"></div>
                             <p>
-                                BrowserQuest is available on Firefox, Chrome, Safari as well as iOS devices and Firefox for Android.
+                                KingdomMole is available on C language for now.
                             </p>
                             <span class="link">
                                 <span class="ext-link"></span>
@@ -202,7 +194,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     <article id="error">
           	           <h1>
           	               <span class="left-ornament"></span>
-          	               Your browser cannot run BrowserQuest!
+          	               Your browser cannot run KingdomMole!
           	               <span class="right-ornament"></span>
                          </h1>
                          <p>
@@ -217,7 +209,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
           	               <span class="right-ornament"></span>
                          </h1>
                          <p>
-                             BrowserQuest stores your character name, game achievements and equipment in your browser and does not send them to Mozilla. We do collect server log data (such as IP address) as well as web analytics data. We handle info we receive about you as explained in our <a class="clickable" target="_blank" href="http://www.mozilla.org/en-US/privacy-policy">Privacy Policy</a>.
+                             KingdomMole stores your character name, game achievements and equipment in your browser and does not send them to Molezilla. We do collect server log data (such as IP address) as well as web analytics data. We handle info we receive about you as explained in our <a class="clickable" target="_blank" href="http://www.mozilla.org/en-US/privacy-policy">Privacy Policy</a>.
                          </p>
  	                    <div id="close-legal">
  	                        <span>- click anywhere to close -</span>
@@ -230,6 +222,8 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
 
 		<div id="container">
 		    <div id="canvasborder">
+                
+
 		        <article id="instructions" class="clickable">
 		            <div class="close"></div>
 		            <h1>
@@ -244,6 +238,29 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
 	                </ul>
 	                    <p>- click anywhere to close -</p>
 		        </article>
+                <article id="editor" class="clickable">
+                <section id="editor_left">
+<div id="editor_main">#include&lt;stdio.h&gt;
+int main(){
+    printf("Hello World\n");
+    return 0;
+}</div>
+                <div><button id="lq_submit">Submit</button> <button id="editorbutton">ESCAPE!</button></div>
+                </section>
+                <div style="height:100%;">
+                <section id="editor_right">
+                <div id="result">
+                </div>
+                <div id="question">
+                </div>
+                
+                </section></div></article>
+                    
+                    <script src="js/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+                    <script>    editor = ace.edit("editor_main");
+                    editor.setTheme("ace/theme/chrome");
+                    editor.getSession().setMode("ace/mode/c_cpp");
+                    </script>
 		        <article id="achievements" class="page1 clickable">
 		            <div class="close"></div>
 		            <div id="achievements-wrapper">
@@ -270,7 +287,6 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
     				<canvas id="foreground" class="clickable"></canvas>
     			</div>
     			<div id="bubbles"></div>
-     			<div id="expbar"></div>
      			<div id="textWindow"></div>
     			<div id="inspector">
                     <div class="headshot"><div> </div></div>
@@ -280,6 +296,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                         <div class="health"></div>
                     </div>
                 </div>
+                <div id="mcq"></div>
                 <div id="dropDialog">
                     <div id="dropTitle">Input drop count.</div>
                     <div align="center">
@@ -304,6 +321,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
 					</div>
 					<div id="weapon"></div>
 					<div id="armor"></div>
+                    <div id="expbar"></div>
 					<div id="notifications">
 					    <div>
 					       <span id="message1"></span>
@@ -321,9 +339,9 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                     </div>
     			</div>
 				<div id="chatbox">
-				    <form action="none" method="get" accept-charset="utf-8">
+				    
 					    <input id="chatinput" class="gp" type="text" maxlength="60">
-				    </form>
+				
 				</div>
 				<!-- TODO div id="dialogbox">
 					Right now this happens in the footer.
@@ -344,15 +362,14 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
 		<footer>
 		    <div id="sharing" class="clickable">
 		      Share this on
-              <a href="http://twitter.com/share?url=http%3A%2F%2Fbrowserquest.mozilla.org&amp;text=Mozilla%27s%20BrowserQuest%3A%20HTML5%20massively%20multiplayer%20adventure%20game%20%23demo%20%23websockets&amp;related=glecollinet:Creators%20of%20BrowserQuest%2Cwhatthefranck" class="twitter"></a>
-              <a href="http://www.facebook.com/share.php?u=http://browserquest.mozilla.org/" class="facebook"></a>
+              <a href="http://twitter.com/share?url=http%3A%2F%2Fkingdommole.com" class="twitter"></a>
+              <a href="http://www.facebook.com/share.php?u=http://kingdommole.com/" class="facebook"></a>
 		    </div>
-		    <div id="privacy-link" class="clickable">
-		      <span class="dash">&ndash;</span> <span id="toggle-legal">Privacy</span>
-		    </div>
-		    <div id="legal-link" class="clickable">
-		      <span class="dash">&ndash;</span> <a class="clickable" target="_blank" href="http://www.mozilla.org/en-US/about/legal.html">Legal notices</a>
-		    </div>
+		   
+             <div id="scoreboard-link" class="clickable">
+              <span class="dash">&ndash;</span> <a href='/scoreboard' target='_blank'><span id="toggle-legal">Scoreboard</span></a>
+            </div>
+		    
 		    <div id="credits-link" class="clickable">
 		      <span class="dash">&ndash;</span> <span id="toggle-credits">Credits</span>
 		    </div>
@@ -366,8 +383,7 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                 <span class="achievement-name">???</span>
                 <span class="achievement-description">???</span>
                 <div class="achievement-sharing">
-                  <a href="" class="twitter"></a>
-                </div>
+                 </div>
             </li>
         </ul>
 
@@ -397,5 +413,15 @@ Mozilla presents an HTML5 mini-MMORPG by Little Workshop http://www.littleworksh
                 var require = { waitSeconds: 60 };
         </script>
         <script data-main="js/home" src="js/lib/require-jquery.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56202746-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 	</body>
 </html>

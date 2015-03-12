@@ -1,0 +1,2990 @@
+{
+ "comment": [], 
+ "sections": [
+  {
+   "comment": [
+    "It is one-base, section zero used to prevent question undefine"
+   ], 
+   "languages": [
+    "C"
+   ], 
+   "description": "section 0", 
+   "questions": [
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "Programming", 
+      "Coding"
+     ], 
+     "stem": "Fill in the blank:<br/>You can learn (blank) in this game!", 
+     "comment": [], 
+     "distractors": [
+      "Chinese", 
+      "History", 
+      "Nothing"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [
+    "common functions and data type"
+   ], 
+   "languages": [
+    "C"
+   ], 
+   "description": "section 1", 
+   "questions": [
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "Hello World(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"Hello World\\n\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hello World\\n", 
+      "Error", 
+      "Hello World(tab)"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "stdio.h"
+     ], 
+     "stem": "printf() is defined in", 
+     "comment": [], 
+     "distractors": [
+      "string.h", 
+      "printf.h", 
+      "cstdio", 
+      "math.h", 
+      "assert.h", 
+      "errno.h"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "stdio.h"
+     ], 
+     "stem": "scanf() is defined in", 
+     "comment": [], 
+     "distractors": [
+      "string.h", 
+      "scanf.h", 
+      "stdlib.h", 
+      "math.h", 
+      "assert.h", 
+      "errno.h"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "string.h"
+     ], 
+     "stem": "memset() is defined in", 
+     "comment": [], 
+     "distractors": [
+      "stdio.h", 
+      "scanf.h", 
+      "stdlib.h", 
+      "math.h", 
+      "assert.h", 
+      "errno.h"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "string.h"
+     ], 
+     "stem": "memcmp() is defined in", 
+     "comment": [], 
+     "distractors": [
+      "stdio.h", 
+      "scanf.h", 
+      "stdlib.h", 
+      "math.h", 
+      "assert.h", 
+      "errno.h"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "string.h"
+     ], 
+     "stem": "memset() is defined in", 
+     "comment": [], 
+     "distractors": [
+      "stdio.h", 
+      "scanf.h", 
+      "stdlib.h", 
+      "math.h", 
+      "assert.h", 
+      "errno.h"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "stdlib.h"
+     ], 
+     "stem": "malloc() is defined in", 
+     "comment": [], 
+     "distractors": [
+      "stdio.h", 
+      "string.h", 
+      "scanf.h", 
+      "math.h", 
+      "assert.h", 
+      "errno.h"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "auto", 
+      "break", 
+      "case", 
+      "char", 
+      "const", 
+      "continue", 
+      "default", 
+      "do", 
+      "double", 
+      "else", 
+      "enum", 
+      "extern", 
+      "float", 
+      "for", 
+      "goto", 
+      "if", 
+      "int", 
+      "long", 
+      "register", 
+      "return", 
+      "short", 
+      "signed", 
+      "sizeof", 
+      "static", 
+      "struct", 
+      "switch", 
+      "typedef", 
+      "union", 
+      "unsigned", 
+      "void", 
+      "volatile", 
+      "while"
+     ], 
+     "stem": "Which one is a reserved word?", 
+     "comment": [], 
+     "distractors": [
+      "then", 
+      "end", 
+      "try", 
+      "catch", 
+      "pass", 
+      "raise", 
+      "throw", 
+      "throws", 
+      "delete", 
+      "new", 
+      "max", 
+      "global", 
+      "local", 
+      "with", 
+      "except", 
+      "elif"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "then", 
+      "end", 
+      "try", 
+      "catch", 
+      "pass", 
+      "raise", 
+      "throw", 
+      "throws", 
+      "delete", 
+      "new", 
+      "max", 
+      "global", 
+      "local", 
+      "with", 
+      "except", 
+      "elif"
+     ], 
+     "stem": "Which one is not a reserved word?", 
+     "comment": [], 
+     "distractors": [
+      "auto", 
+      "break", 
+      "case", 
+      "char", 
+      "const", 
+      "continue", 
+      "default", 
+      "do", 
+      "double", 
+      "else", 
+      "enum", 
+      "extern", 
+      "float", 
+      "for", 
+      "goto", 
+      "if", 
+      "int", 
+      "long", 
+      "register", 
+      "return", 
+      "short", 
+      "signed", 
+      "sizeof", 
+      "static", 
+      "struct", 
+      "switch", 
+      "typedef", 
+      "union", 
+      "unsigned", 
+      "void", 
+      "volatile", 
+      "while"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "then", 
+      "end", 
+      "try", 
+      "catch", 
+      "pass", 
+      "raise", 
+      "throw", 
+      "throws", 
+      "delete", 
+      "new", 
+      "max", 
+      "global", 
+      "local", 
+      "with", 
+      "except", 
+      "elif", 
+      "_1_abc_1", 
+      "URL", 
+      "Int", 
+      "c", 
+      "_", 
+      "A100xC200", 
+      "tab", 
+      "include"
+     ], 
+     "stem": "Which one is a valid variable name?", 
+     "comment": [], 
+     "distractors": [
+      "Domain-name", 
+      "Hong Kong", 
+      "1_1", 
+      "for", 
+      "@cuhk", 
+      "hi!", 
+      "auto", 
+      "break", 
+      "case", 
+      "char", 
+      "const", 
+      "continue", 
+      "default", 
+      "do", 
+      "double", 
+      "else", 
+      "enum", 
+      "extern", 
+      "float", 
+      "for", 
+      "goto", 
+      "if", 
+      "int", 
+      "long", 
+      "register", 
+      "return", 
+      "short", 
+      "signed", 
+      "sizeof", 
+      "static", 
+      "struct", 
+      "switch", 
+      "typedef", 
+      "union", 
+      "unsigned", 
+      "void", 
+      "volatile", 
+      "while", 
+      "isVaild?", 
+      "a.c", 
+      "hi!"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "isVaild?", 
+      "a.c", 
+      "hi!", 
+      "Domain-name", 
+      "Hong Kong", 
+      "1_1", 
+      "for", 
+      "@cuhk", 
+      "hi!", 
+      "auto", 
+      "break", 
+      "case", 
+      "char", 
+      "const", 
+      "continue", 
+      "default", 
+      "do", 
+      "double", 
+      "else", 
+      "enum", 
+      "extern", 
+      "float", 
+      "for", 
+      "goto", 
+      "if", 
+      "int", 
+      "long", 
+      "register", 
+      "return", 
+      "short", 
+      "signed", 
+      "sizeof", 
+      "static", 
+      "struct", 
+      "switch", 
+      "typedef", 
+      "union", 
+      "unsigned", 
+      "void", 
+      "volatile", 
+      "while"
+     ], 
+     "stem": "Which one is not a valid variable name?", 
+     "comment": [], 
+     "distractors": [
+      "then", 
+      "end", 
+      "try", 
+      "catch", 
+      "pass", 
+      "raise", 
+      "throw", 
+      "throws", 
+      "delete", 
+      "new", 
+      "max", 
+      "global", 
+      "local", 
+      "with", 
+      "except", 
+      "elif", 
+      "_1_abc_1", 
+      "URL", 
+      "Int", 
+      "c", 
+      "_", 
+      "A100xC200", 
+      "tab", 
+      "include"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "string", 
+      "byte", 
+      "double double", 
+      "bool", 
+      "boolean"
+     ], 
+     "stem": "Which one is not a basic data type?", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "long long", 
+      "char", 
+      "unsigned int", 
+      "unsigned", 
+      "double", 
+      "long double"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "int", 
+      "long long", 
+      "char", 
+      "unsigned int", 
+      "unsigned", 
+      "double", 
+      "long double"
+     ], 
+     "stem": "Which one is a basic data type?", 
+     "comment": [], 
+     "distractors": [
+      "string", 
+      "byte", 
+      "double double", 
+      "bool", 
+      "boolean"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "C"
+   ], 
+   "description": " section 2", 
+   "questions": [
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "printf(\"HiHi\")"
+     ], 
+     "stem": "Which line of code is invalid?", 
+     "comment": [], 
+     "distractors": [
+      "for(;;);", 
+      "int a,b,c;", 
+      "a = b = c;"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "4"
+     ], 
+     "stem": "What gets printed?<br/><pre>i = 4;<br/>printf(\"%d\",i++);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "5", 
+      "%d", 
+      "6"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "5"
+     ], 
+     "stem": "What gets printed?<br/><pre>i = 4;<br/>printf(\"%d\",++i);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "4", 
+      "%d", 
+      "6"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "3"
+     ], 
+     "stem": "What gets printed?<br/><pre>i = 4;<br/>printf(\"%d\",--i);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "4", 
+      "5", 
+      "%d"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "-4"
+     ], 
+     "stem": "What gets printed?<br/><pre>i = 4;<br/>printf(\"%d\",+-i);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "4", 
+      "%d", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "7"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"%d\",1+2*3);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "9", 
+      "%d", 
+      "1+2*3"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "3.14"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"%4.2f\",3.14159);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "3.14159", 
+      "3.1415", 
+      "%4.2f"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "%"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"%%\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "%%", 
+      "Error", 
+      "(^.^)"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "EOF"
+     ], 
+     "stem": "Which value is returned by getchar() when there is no more input?", 
+     "comment": [], 
+     "distractors": [
+      "NULL", 
+      "NONE", 
+      "END"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "elseif"
+     ], 
+     "stem": "Which one is not a reserved word in C?", 
+     "comment": [], 
+     "distractors": [
+      "if", 
+      "goto", 
+      "switch"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "catch"
+     ], 
+     "stem": "Which one is not a reserved word in C?", 
+     "comment": [], 
+     "distractors": [
+      "register", 
+      "goto", 
+      "volatile"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "(tab)\\(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"\\t\\\\n\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "(tab)\\n", 
+      "\\t\\\\n", 
+      "(tab)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "(tab)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"\\t\\n\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "(tab)\\(newline)", 
+      "(tab)\\n", 
+      "\\t\\\\n"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "C"
+   ], 
+   "description": "section 3", 
+   "questions": [
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "nothing"
+     ], 
+     "stem": "What gets printed?<br/><pre>int bool = (1+1%2) == 0;<br/>if(bool) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "true", 
+      "error", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "true"
+     ], 
+     "stem": "What gets printed?<br/><pre>int bool = (1+1%2) == 0;<br/>if(!bool) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "nothing", 
+      "error", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "true"
+     ], 
+     "stem": "What gets printed?<br/><pre>int bool = ((1+1)%2) == 0;<br/>if(bool) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "error", 
+      "nothing", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "nothing"
+     ], 
+     "stem": "What gets printed?<br/><pre>int bool = ((1+1)%2) == 0;<br/>if(!bool) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "error", 
+      "true", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "error"
+     ], 
+     "stem": "What gets printed?<br/><pre>char true = 1;<br/>char false = 0<br/>if(true and false) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "nothing", 
+      "true", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "error"
+     ], 
+     "stem": "What gets printed?<br/><pre>char true = 1;<br/>char false = 0<br/>if(true or false) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "nothing", 
+      "true", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "nothing"
+     ], 
+     "stem": "What gets printed?<br/><pre>char true = 1;<br/>char false = 0<br/>if(true && false) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "error", 
+      "true", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "true"
+     ], 
+     "stem": "What gets printed?<br/><pre>char true = 1;<br/>char false = 0<br/>if(true || false) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "nothing", 
+      "error", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "nothing"
+     ], 
+     "stem": "What gets printed?<br/><pre>char true = 1;<br/>char false = 0<br/>if(true && !!false) printf('true');<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "error", 
+      "true", 
+      "false"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "compile error"
+     ], 
+     "stem": "What gets printed?<br/><pre>if(true)<br/>    printf(\"Hello\");<br/>else<br/>    printf(\"World\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hello", 
+      "World", 
+      "HelloWorld"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "Hello"
+     ], 
+     "stem": "What gets printed?<br/><pre>if(1 == 1)<br/>    printf(\"Hello\");<br/>else<br/>    printf(\"World\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "compile error", 
+      "World", 
+      "HelloWorld"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "HelloWorld"
+     ], 
+     "stem": "What gets printed?<br/><pre>if(1 == 2);<br/>    printf(\"Hello\");<br/>printf(\"World\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "compile error", 
+      "Hello", 
+      "World"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "Nothing"
+     ], 
+     "stem": "What gets printed?<br/><pre>char c = '1';<br/>if(c == 1) printf(\"BINGO\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "BINGO", 
+      "error", 
+      "^o^"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "BINGO"
+     ], 
+     "stem": "What gets printed?<br/><pre>char c = 1;<br/>if(c == 1) printf(\"BINGO\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Nothing", 
+      "error", 
+      "^o^"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "Syntax Error"
+     ], 
+     "stem": "What gets printed?<br/><pre>if(true)<br/>printf(\"This\");<br/>printf(\"is easy\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "This", 
+      "is easy", 
+      "This is easy"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "It works!"
+     ], 
+     "stem": "What gets printed?<br/>int i = 0;<br/>if(1)<br/>printf(\"It works!\");<br/>", 
+     "comment": [], 
+     "distractors": [
+      "Nothing", 
+      "Syntax Error", 
+      "I don't know"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "C"
+   ], 
+   "description": "section 4", 
+   "questions": [
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "0"
+     ], 
+     "stem": "How many 'hi' gets printed?<br/><pre>int i = 0;<br/>while(i < 0){<br/>    printf(\"hi\");<br/>}</pre>", 
+     "comment": [], 
+     "distractors": [
+      "2", 
+      "1", 
+      "infinite"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "C"
+   ], 
+   "description": "section 5", 
+   "questions": [
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "0"
+     ], 
+     "stem": "What gets printed?<br/><pre>int i = 0;<br/>{<br/>    int i = 10;<br/>    i = i*2;<br/>}<br/>printf(\"%d\",i);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "10", 
+      "20", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "100"
+     ], 
+     "stem": "What get printed??<br/><pre>int a = 100;<br/>void f(int a){<br/>    a = 0;<br/>}<br/>int main(){<br/>\tf(a);<br/>\tprintf(\"%d\\n\",a);<br/>}</pre>", 
+     "comment": [], 
+     "distractors": [
+      "0", 
+      "error", 
+      "garbage value"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "100"
+     ], 
+     "stem": "What get printed??<br/><pre>int a = 100;<br/>void f(int a){<br/>    a = 0;<br/>}<br/>int main(){<br/>\tf(a);<br/>\tprintf(\"%d\\n\",a);<br/>}</pre>", 
+     "comment": [], 
+     "distractors": [
+      "0", 
+      "error", 
+      "garbage value"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "C"
+   ], 
+   "description": "section 6", 
+   "questions": [
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "1"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"%d\",2^3);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "8", 
+      "6", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "2"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"%d\",2&3);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "5", 
+      "6", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "3"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"%d\",(-1)&3);</pre>", 
+     "comment": [], 
+     "distractors": [
+      "2", 
+      "-3", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "0"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"%d\",~(-1));</pre>", 
+     "comment": [], 
+     "distractors": [
+      "1", 
+      "-1", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "C"
+     ], 
+     "keys": [
+      "1"
+     ], 
+     "stem": "What gets printed?<br/><pre>printf(\"%d\",~(-2));</pre>", 
+     "comment": [], 
+     "distractors": [
+      "2", 
+      "-1", 
+      "Error"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [
+    "Simple Questions"
+   ], 
+   "languages": [
+    "Python"
+   ], 
+   "description": "section 7", 
+   "questions": [
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      ".py", 
+      ".pyc", 
+      ".pyo", 
+      ".pyd"
+     ], 
+     "stem": "What is the file extension of python file?", 
+     "comment": [], 
+     "distractors": [
+      ".cc", 
+      ".cpp", 
+      ".c", 
+      ".rb", 
+      ".txt"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Guido van Rossum"
+     ], 
+     "stem": "Who designs python?", 
+     "comment": [], 
+     "distractors": [
+      "snake", 
+      "Kingdom Mole", 
+      "python"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "2000"
+     ], 
+     "stem": "When did python 2.0 release?", 
+     "comment": [], 
+     "distractors": [
+      "1500", 
+      "1700", 
+      "2020"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "Python"
+   ], 
+   "description": "section 8", 
+   "questions": [
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print('Hi');</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi", 
+      "Error", 
+      "Hi(newline)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print('Hi')</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi", 
+      "Error", 
+      "Hi(newline)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print('Hi\\n');</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi(newline)", 
+      "Hi", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print('Hi\\n')</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi(newline)", 
+      "Hi", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print'Hi';</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi", 
+      "Error", 
+      "Hi(newline)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print'Hi'</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi", 
+      "Error", 
+      "Hi(newline)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print'Hi\\n';</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi(newline)", 
+      "Hi", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print'Hi\\n'</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi(newline)", 
+      "Hi", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print(\"Hi\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi", 
+      "Error", 
+      "Hi(newline)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print(\"Hi\")</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi", 
+      "Error", 
+      "Hi(newline)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print(\"Hi\\n\");</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi(newline)", 
+      "Hi", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print(\"Hi\\n\")</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi(newline)", 
+      "Hi", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print\"Hi\";</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi", 
+      "Error", 
+      "Hi(newline)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print\"Hi\"</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi", 
+      "Error", 
+      "Hi(newline)(newline)"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print\"Hi\\n\";</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi(newline)", 
+      "Hi", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Hi(newline)(newline)"
+     ], 
+     "stem": "What gets printed?<br/><pre>print\"Hi\\n\"</pre>", 
+     "comment": [], 
+     "distractors": [
+      "Hi(newline)", 
+      "Hi", 
+      "Error"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "Python"
+   ], 
+   "description": "section 9", 
+   "questions": [
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "int"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 0 + 1", 
+     "comment": [], 
+     "distractors": [
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 1.0 + 1", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 1 + 1.0", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 0.0 + 1", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 1 + 0.0", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "str"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 'a'", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "str"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 'a' + 'b'", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "error"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 1 + 'b'", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "error"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 'a' + 1", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "str"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 'KingdomMole'", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "bool"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = True", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "bool"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = False", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "error"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = true", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "error"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = false", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "int"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 5 / 2", 
+     "comment": [], 
+     "distractors": [
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "int"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 4 / 2", 
+     "comment": [], 
+     "distractors": [
+      "float", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 4.0 / 2", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 4 / 2.0", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 5.0 / 2", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 5 / 2.0", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "complex", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "Python"
+   ], 
+   "description": "section 10", 
+   "questions": [
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "int"
+     ], 
+     "stem": "<pre><br/>num = 1234<br/>Num = 'num'<br/></pre><br/>What is the type of the variable num?", 
+     "comment": [], 
+     "distractors": [
+      "str", 
+      "char", 
+      "bool", 
+      "float", 
+      "complex", 
+      "NoneType"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "str"
+     ], 
+     "stem": "<pre><br/>num = 1234<br/>Num = 'num'<br/></pre><br/>What is the type of the variable Num?", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "char", 
+      "bool", 
+      "float", 
+      "NoneType", 
+      "complex"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "int"
+     ], 
+     "stem": "<pre><br/>num = 1234<br/>Num = num<br/></pre><br/>What is the type of the variable Num?", 
+     "comment": [], 
+     "distractors": [
+      "str", 
+      "char", 
+      "bool", 
+      "float", 
+      "NoneType", 
+      "complex"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "str"
+     ], 
+     "stem": "<pre><br/>num = 1234<br/>num = 'num'<br/></pre><br/>What is the type of the variable num?", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "char", 
+      "bool", 
+      "float", 
+      "NoneType", 
+      "complex"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "NoneType"
+     ], 
+     "stem": "<pre><br/>Num = None<br/>num = 1234<br/>num = 'num'<br/></pre><br/>What is the type of the variable Num?", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "str", 
+      "char", 
+      "bool", 
+      "float", 
+      "complex"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "float"
+     ], 
+     "stem": "<pre><br/>num = 1234<br/>num /= 1.0<br/></pre><br/>What is the type of the variable num?", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "str", 
+      "char", 
+      "bool", 
+      "NoneType", 
+      "complex"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "complex"
+     ], 
+     "stem": "<pre><br/>num = 1234<br/>num += 0j<br/></pre><br/>What is the type of the variable num?", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "str", 
+      "char", 
+      "bool", 
+      "float", 
+      "NoneType"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "int"
+     ], 
+     "stem": "<pre><br/>num = 10.0<br/>num = 20 / 2<br/></pre><br/>What is the type of the variable num?", 
+     "comment": [], 
+     "distractors": [
+      "str", 
+      "char", 
+      "bool", 
+      "float", 
+      "NoneType", 
+      "complex"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "Python"
+   ], 
+   "description": "section 11", 
+   "questions": [
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "4"
+     ], 
+     "stem": "What get print?<br/><pre><br/>drinks = ['tea','coffee', 'water', 'coke']<br/>print len(drinks)<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "1", 
+      "2", 
+      "3", 
+      "5", 
+      "6"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "3"
+     ], 
+     "stem": "What get print?<br/><pre><br/>drinks = ['tea', 'coffee', None]<br/>print len(drinks)<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "1", 
+      "2", 
+      "4", 
+      "5", 
+      "6"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "tea"
+     ], 
+     "stem": "What get print?<br/><pre><br/>drinks = ['tea', 'coffee', 'water', 'coke']<br/>print drinks[0]<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "coffee", 
+      "water", 
+      "coke", 
+      "None", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "coffee"
+     ], 
+     "stem": "What get print?<br/><pre><br/>drinks = ['tea', 'coffee', 'water', 'coke']<br/>print drinks[1]<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "tea", 
+      "water", 
+      "coke", 
+      "None", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "water"
+     ], 
+     "stem": "What get print?<br/><pre><br/>drinks = ['tea', 'coffee', 'water', 'coke']<br/>print drinks[2]<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "tea", 
+      "coffee", 
+      "coke", 
+      "None", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "coke"
+     ], 
+     "stem": "What get print?<br/><pre><br/>drinks = ['tea', 'coffee', 'water', 'coke']<br/>print drinks[3]<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "tea", 
+      "coffee", 
+      "water", 
+      "None", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Error"
+     ], 
+     "stem": "What get print?<br/><pre><br/>drinks = ['tea', 'coffee', 'water', 'coke']<br/>print drinks[4]<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "tea", 
+      "coffee", 
+      "water", 
+      "coke", 
+      "None"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "three"
+     ], 
+     "stem": "What get print?<br/><pre><br/>number = [1, 2, 3, 4]<br/>number[3] = 'three'<br/>print number[number[2]]<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "1", 
+      "2", 
+      "3", 
+      "4", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "3"
+     ], 
+     "stem": "What get print?<br/><pre><br/>number = [1, 2, 3, 4]<br/>number[3] = 'three'<br/>print number[2]<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "1", 
+      "2", 
+      "4", 
+      "three", 
+      "Error"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "3"
+     ], 
+     "stem": "What get print?<br/><pre><br/>number = [1, 2, 3, 4]<br/>number[3] = 'three'<br/>print number[2]<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "1", 
+      "2", 
+      "4", 
+      "three", 
+      "Error"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "Python"
+   ], 
+   "description": "section 12", 
+   "questions": [
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "%d", 
+      "%i"
+     ], 
+     "stem": "What symbol in formatting string indicate an integer?", 
+     "comment": [], 
+     "distractors": [
+      "%c", 
+      "%s", 
+      "%r", 
+      "%f"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "%c"
+     ], 
+     "stem": "What symbol in formatting string indicate an character?", 
+     "comment": [], 
+     "distractors": [
+      "%d", 
+      "%i", 
+      "%s", 
+      "%r", 
+      "%f"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "%s"
+     ], 
+     "stem": "What symbol in formatting string indicate an string?", 
+     "comment": [], 
+     "distractors": [
+      "%c", 
+      "%d", 
+      "%i", 
+      "%r", 
+      "%f"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "%f"
+     ], 
+     "stem": "What symbol in formatting string indicate an real number?", 
+     "comment": [], 
+     "distractors": [
+      "%c", 
+      "%d", 
+      "%i", 
+      "%s", 
+      "%r"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "Python"
+   ], 
+   "description": "section 13", 
+   "questions": [
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "Nothing"
+     ], 
+     "stem": "what get print?<br/><pre><br/>color = 'red'<br/>def shirt():<br/>   print 'I have a %s shirt' % color<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "I have a red shirt", 
+      "I have a yellow shirt", 
+      "I have a blue shirt", 
+      "I have a black shirt"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "I have a red shirt"
+     ], 
+     "stem": "what get print?<br/><pre><br/>color = 'red'<br/>def shirt():<br/>   print 'I have a %s shirt' % color<br/>shirt()<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "Nothing", 
+      "I have a yellow shirt", 
+      "I have a blue shirt", 
+      "I have a black shirt"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "I have a blue shirt"
+     ], 
+     "stem": "what get print?<br/><pre><br/>color = 'red'<br/>def shirt(color):<br/>   print 'I have a %s shirt' % color<br/>shirt('blue')<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "Nothing", 
+      "I have a red shirt", 
+      "I have a yellow shirt", 
+      "I have a black shirt"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "I have a yellow shirt"
+     ], 
+     "stem": "what get print?<br/><pre><br/>color = 'red'<br/>def shirt(color):<br/>   color = 'yellow'<br/>   print 'I have a %s shirt' % color<br/>shirt('white')<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "Nothing", 
+      "I have a red shirt", 
+      "I have a blue shirt", 
+      "I have a black shirt"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "I have a red shirt"
+     ], 
+     "stem": "what get print?<br/><pre><br/>color = 'red'<br/>def shirt(color):<br/>   color = 'yellow'<br/>print 'I have a %s shirt' % color<br/>shirt('white')<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "Nothing", 
+      "I have a yellow shirt", 
+      "I have a blue shirt", 
+      "I have a black shirt"
+     ]
+    }, 
+    {
+     "languages": [
+      "Python"
+     ], 
+     "keys": [
+      "I have a red shirt"
+     ], 
+     "stem": "what get print?<br/><pre><br/>color = 'red'<br/>def shirt(color):<br/>   color = color<br/>shirt('white')<br/>print 'I have a %s shirt' % color<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "Nothing", 
+      "I have a yellow shirt", 
+      "I have a blue shirt", 
+      "I have a black shirt"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "python"
+   ], 
+   "description": "section 14", 
+   "questions": [
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "1"
+     ], 
+     "stem": "what get print?<br/><pre><br/>x = 0<br/>if ( x == 0):<br/>   x += 1<br/>else :<br/>   x -= 1<br/>print x<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "-2", 
+      "-1", 
+      "0", 
+      "2"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "0"
+     ], 
+     "stem": "what get print?<br/><pre><br/>x = 1<br/>if ( x == 0):<br/>   x += 1<br/>else :<br/>   x -= 1<br/>print x<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "-2", 
+      "-1", 
+      "1", 
+      "2"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "-2"
+     ], 
+     "stem": "what get print?<br/><pre><br/>x = -1<br/>if ( x == 0):<br/>   x += 1<br/>else :<br/>   x -= 1<br/>print x<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "-1", 
+      "0", 
+      "1", 
+      "2"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "1"
+     ], 
+     "stem": "what get print?<br/><pre><br/>x = 0<br/>if ( x == 0):<br/>   x += 1<br/>elif ((x % 2) == 0):<br/>   x -= 1<br/>else:<br/>   x *= 2<br/>print x<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "-2", 
+      "-1", 
+      "0", 
+      "2"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "-2"
+     ], 
+     "stem": "what get print?<br/><pre><br/>x = -1<br/>if ( x == 0):<br/>   x += 1<br/>elif ((x % 2) == 0):<br/>   x -= 1<br/>else:<br/>   x *= 2<br/>print x<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "-1", 
+      "0", 
+      "1", 
+      "2"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "1"
+     ], 
+     "stem": "what get print?<br/><pre><br/>x = 2<br/>if ( x == 0):<br/>   x += 1<br/>elif ((x % 2) == 0):<br/>   x -= 1<br/>else:<br/>   x *= 2<br/>print x<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "-2", 
+      "-1", 
+      "0", 
+      "2"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "2"
+     ], 
+     "stem": "what get print?<br/><pre><br/>x = 1<br/>if ( x == 0):<br/>   x += 1<br/>elif ((x % 2) == 0):<br/>   x -= 1<br/>else:<br/>   x *= 2<br/>print x<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "-2", 
+      "-1", 
+      "0", 
+      "1"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "-1"
+     ], 
+     "stem": "what get print?<br/><pre><br/>x = -2<br/>if ( x == 0):<br/>   x -= 1<br/>elif ((x % 2) == 0):<br/>   x += 1<br/>else:<br/>   x *= 2<br/>print x<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "-2", 
+      "0", 
+      "1", 
+      "2"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "python"
+   ], 
+   "description": "section 15", 
+   "questions": [
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "3"
+     ], 
+     "stem": "what get print?<br/><pre><br/>sum = 0<br/>for i in range(3):<br/>   sum += i<br/>print sum<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "0", 
+      "1", 
+      "6"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "0"
+     ], 
+     "stem": "what get print?<br/><pre><br/>sum = 1<br/>for i in range(3):<br/>   sum *= i<br/>print sum<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "1", 
+      "2", 
+      "6"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "0"
+     ], 
+     "stem": "what get print?<br/><pre><br/>sum = 0<br/>for i in range(3):<br/>   sum *= i<br/>print sum<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "1", 
+      "2", 
+      "6"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "python"
+   ], 
+   "description": "section 16", 
+   "questions": [
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "20"
+     ], 
+     "stem": "what get print<br/><pre><br/>nums = [3, 4, 9, 2, 5, 4, 4, 1, 7, 6]<br/>sum = index = 0<br/>while(sum < 20):<br/>   index += 1<br/>   sum += nums[index]<br/>print sum<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "21", 
+      "22", 
+      "23", 
+      "24", 
+      "25"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "23"
+     ], 
+     "stem": "what get print<br/><pre><br/>nums = [3, 4, 9, 2, 5, 4, 4, 1, 7, 6]<br/>sum = index = 0<br/>while(sum < 20):<br/>   sum += nums[index]<br/>   index += 1<br/>print sum<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "20", 
+      "21", 
+      "22", 
+      "24", 
+      "25"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "24"
+     ], 
+     "stem": "what get print<br/><pre><br/>nums = [3, 4, 9, 2, 5, 4, 4, 1, 7, 6]<br/>sum = index = 0<br/>while(sum <= 20):<br/>   index += 1<br/>   sum += nums[index]<br/>print sum<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "20", 
+      "21", 
+      "22", 
+      "23", 
+      "25"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "23"
+     ], 
+     "stem": "what get print<br/><pre><br/>nums = [3, 4, 9, 2, 5, 4, 4, 1, 7, 6]<br/>sum = index = 0<br/>while(sum <= 20):<br/>   sum += nums[index]<br/>   index += 1<br/>print sum<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "20", 
+      "21", 
+      "22", 
+      "24", 
+      "25"
+     ]
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "languages": [
+    "python"
+   ], 
+   "description": "section 17", 
+   "questions": [
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "p"
+     ], 
+     "stem": "What get print?<br/><pre><br/>array = 'python'<br/>lang = array[0]<br/>lang.upper()<br/>print lang<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "python", 
+      "PYTHON", 
+      "P"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "python"
+     ], 
+     "stem": "What get print?<br/><pre><br/>array = ['python']<br/>lang = array[0]<br/>lang.upper()<br/>print lang<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "PYTHON", 
+      "P", 
+      "p"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "P"
+     ], 
+     "stem": "What get print?<br/><pre><br/>array = 'python'<br/>lang = array[0]<br/>print lang.upper()<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "python", 
+      "PYTHON", 
+      "p"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "PYTHON"
+     ], 
+     "stem": "What get print?<br/><pre><br/>array = ['python']<br/>lang = array[0]<br/>print lang.upper()<br/></pre>", 
+     "comment": [], 
+     "distractors": [
+      "python", 
+      "P", 
+      "p"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "and", 
+      "del", 
+      "from", 
+      "not", 
+      "while", 
+      "as", 
+      "elif", 
+      "global", 
+      "or", 
+      "with", 
+      "assert", 
+      "else", 
+      "if", 
+      "pass", 
+      "yield", 
+      "break", 
+      "except", 
+      "import", 
+      "print", 
+      "class", 
+      "exec", 
+      "in", 
+      "raise", 
+      "continue", 
+      "finally", 
+      "is", 
+      "return", 
+      "def", 
+      "for", 
+      "lambda", 
+      "try"
+     ], 
+     "stem": "Which one is reserved word?", 
+     "comment": [], 
+     "distractors": [
+      "str", 
+      "int", 
+      "var", 
+      "then", 
+      "end", 
+      "elseif", 
+      "switch", 
+      "case", 
+      "new", 
+      "delete", 
+      "catch", 
+      "on", 
+      "var"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "then", 
+      "end", 
+      "catch", 
+      "throw", 
+      "throws", 
+      "delete", 
+      "new", 
+      "max", 
+      "min", 
+      "local", 
+      "with", 
+      "elseif", 
+      "_1_abc_1", 
+      "URL", 
+      "Int", 
+      "c", 
+      "_", 
+      "A100xC200", 
+      "tab", 
+      "include", 
+      "char"
+     ], 
+     "stem": "Which one is a valid variable name?", 
+     "comment": [], 
+     "distractors": [
+      "Domain-name", 
+      "Hong Kong", 
+      "1_1", 
+      "for", 
+      "@cuhk", 
+      "hi!", 
+      "const", 
+      "continue", 
+      "default", 
+      "do", 
+      "else", 
+      "if", 
+      "return", 
+      "isVaild?", 
+      "a.c", 
+      "hi!", 
+      "var%var", 
+      "HKD$$$"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "complex"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 1+j", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "complex"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = j", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "complex"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 0+0j", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "complex"
+     ], 
+     "stem": "What is the type of the variable?<br/>variable = 0.0+0j", 
+     "comment": [], 
+     "distractors": [
+      "int", 
+      "float", 
+      "str", 
+      "char", 
+      "bool", 
+      "error"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "3.14"
+     ], 
+     "stem": "what get print?<br/><pre>print \"%2.2f\" % 3.14159</pre><br/>(space is replaced by _ here)", 
+     "comment": [], 
+     "distractors": [
+      "3.1", 
+      "3.141", 
+      "3.1416", 
+      "3.14159", 
+      "__3.1", 
+      "__3.14", 
+      "__3.141", 
+      "__3.1416", 
+      "__3.14159", 
+      "____3.1", 
+      "____3.14", 
+      "____3.141", 
+      "____3.1416", 
+      "____3.14159", 
+      "______3.1", 
+      "______3.14", 
+      "______3.141", 
+      "______3.1416", 
+      "______3.14159"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "3.14"
+     ], 
+     "stem": "what get print?<br/><pre>print \"%4.2f\" % 3.14159</pre><br/>(space is replaced by _ here)", 
+     "comment": [], 
+     "distractors": [
+      "3.1", 
+      "3.141", 
+      "3.1416", 
+      "3.14159", 
+      "__3.1", 
+      "__3.14", 
+      "__3.141", 
+      "__3.1416", 
+      "__3.14159", 
+      "____3.1", 
+      "____3.14", 
+      "____3.141", 
+      "____3.1416", 
+      "____3.14159", 
+      "______3.1", 
+      "______3.14", 
+      "______3.141", 
+      "______3.1416", 
+      "______3.14159"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "__3.14"
+     ], 
+     "stem": "what get print?<br/><pre>print \"%6.2f\" % 3.14159</pre><br/>(space is replaced by _ here)", 
+     "comment": [], 
+     "distractors": [
+      "3.1", 
+      "3.14", 
+      "3.141", 
+      "3.1416", 
+      "3.14159", 
+      "__3.1", 
+      "__3.141", 
+      "__3.1416", 
+      "__3.14159", 
+      "____3.1", 
+      "____3.14", 
+      "____3.141", 
+      "____3.1416", 
+      "____3.14159", 
+      "______3.1", 
+      "______3.14", 
+      "______3.141", 
+      "______3.1416", 
+      "______3.14159"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "3.1416"
+     ], 
+     "stem": "what get print?<br/><pre>print \"%2.4f\" % 3.14159</pre><br/>(space is replaced by _ here)", 
+     "comment": [], 
+     "distractors": [
+      "3.1", 
+      "3.14", 
+      "3.141", 
+      "3.14159", 
+      "_3.1", 
+      "_3.14", 
+      "_3.141", 
+      "_3.1416", 
+      "_3.14159", 
+      "__3.1", 
+      "__3.14", 
+      "__3.141", 
+      "__3.1416", 
+      "__3.14159", 
+      "____3.1", 
+      "____3.14", 
+      "____3.141", 
+      "____3.1416", 
+      "____3.14159"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "3.1416"
+     ], 
+     "stem": "what get print?<br/><pre>print \"%4.4f\" % 3.14159</pre><br/>(space is replaced by _ here)", 
+     "comment": [], 
+     "distractors": [
+      "3.1", 
+      "3.14", 
+      "3.141", 
+      "3.14159", 
+      "_3.1", 
+      "_3.14", 
+      "_3.141", 
+      "_3.1416", 
+      "_3.14159", 
+      "__3.1", 
+      "__3.14", 
+      "__3.141", 
+      "__3.1416", 
+      "__3.14159", 
+      "____3.1", 
+      "____3.14", 
+      "____3.141", 
+      "____3.1416", 
+      "____3.14159"
+     ]
+    }, 
+    {
+     "languages": [
+      "python"
+     ], 
+     "keys": [
+      "3.1416"
+     ], 
+     "stem": "what get print?<br/><pre>print \"%6.4f\" % 3.14159</pre><br/>(space is replaced by _ here)", 
+     "comment": [], 
+     "distractors": [
+      "3.1", 
+      "3.14", 
+      "3.141", 
+      "3.14159", 
+      "_3.1", 
+      "_3.14", 
+      "_3.141", 
+      "_3.1416", 
+      "_3.14159", 
+      "__3.1", 
+      "__3.14", 
+      "__3.141", 
+      "__3.1416", 
+      "__3.14159", 
+      "____3.1", 
+      "____3.14", 
+      "____3.141", 
+      "____3.1416", 
+      "____3.14159"
+     ]
+    }
+   ]
+  }
+ ], 
+ "description": "Question Bank"
+}

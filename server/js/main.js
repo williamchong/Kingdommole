@@ -41,6 +41,10 @@ function main(config) {
         }
     }, 1000);
 
+    // testing
+    var Quiz = require("./quiz");
+    var quiz = new Quiz(); 
+
     log.info("Starting BrowserQuest game server...");
     var selector = DatabaseSelector(config);
     databaseHandler = new selector(config);
@@ -49,7 +53,7 @@ function main(config) {
         var world; // the one in which the player will be spawned
         var connect = function() {
                 if(world) {
-                    world.connect_callback(new Player(connection, world, databaseHandler));
+                    world.connect_callback(new Player(connection, world, databaseHandler,quiz));
                 }
             };
 
@@ -93,9 +97,22 @@ function main(config) {
         }
     });
 
+    // status page
     server.onRequestStatus(function() {
-        return JSON.stringify(getWorldDistribution(worlds));
+        return (getOnlinePlayers(worlds).join('\n'));
+        // return JSON.stringify(getWorldDistribution(worlds));
     });
+
+    // scoreboard page
+    server.onRequestScoreboard(function() {
+        return databaseHandler.getScoreboard();
+    });    
+    // Generate scoreboard from time to time
+    server.scoreboard = server.scoreboardCallback();
+    setInterval(function(){
+        server.scoreboard = server.scoreboardCallback();
+    },300000);
+
 
     if(config.metrics_enabled) {
         metrics.ready(function() {
@@ -111,11 +128,20 @@ function main(config) {
 
 function getWorldDistribution(worlds) {
     var distribution = [];
-
     _.each(worlds, function(world) {
         distribution.push(world.playerCount);
     });
     return distribution;
+}
+
+function getOnlinePlayers(worlds) {
+    var onlinePlayers = []
+    _.each(worlds, function(world) {
+        _.each(world.players, function(player) {
+            onlinePlayers.push(player.name+' '+player.x+' '+player.y);
+        });
+    });
+    return onlinePlayers;
 }
 
 function getConfigFile(path, callback) {

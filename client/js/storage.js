@@ -22,7 +22,7 @@ define(function() {
                 },
                 achievements: {
                     unlocked: [],
-                    ratCount: 0,
+                    crabCount: 0,
                     skeletonCount: 0,
                     totalKills: 0,
                     totalDmg: 0,
@@ -116,15 +116,15 @@ define(function() {
             return _.size(this.data.achievements.unlocked);
         },
 
-        // Angry rats
-        getRatCount: function() {
-            return this.data.achievements.ratCount;
+        // Angry crabs
+        getCrabCount: function() {
+            return this.data.achievements.crabCount;
         },
 
-        incrementRatCount: function() {
-            if(this.data.achievements.ratCount < 10) {
-                this.data.achievements.ratCount++;
-                this.save();
+        incrementCrabCount: function() {
+            if(this.data.achievements.crabCount < 10) {
+                this.data.achievements.crabCount++;
+                 this.save();
             }
         },
 

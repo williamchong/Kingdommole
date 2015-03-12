@@ -39,6 +39,7 @@ module.exports = function processMap(json, options) {
         map.roamingAreas = [];
         map.chestAreas = [];
         map.staticChests = [];
+        map.staticMonsters = []
         map.staticEntities = {};
     }
     
@@ -145,8 +146,16 @@ module.exports = function processMap(json, options) {
 
             // iterate through areas
             for (var j = 0; j < areas.length; j += 1) {
+                var nb, mc, lq;
+                mc = lq = undefined;
+
                 if(areas[j].properties) {
-                    var nb = parseInt(areas[j].properties.nb, 10);
+                    nb = parseInt(areas[j].properties.nb, 10);
+                    if(areas[j].properties.mc){
+                        mc = parseInt(areas[j].properties.mc, 10);
+                    } else if(areas[j].properties.lq){
+                        lq = parseInt(areas[j].properties.lq, 10);
+                    }
                 }
 
                 map.roamingAreas[j] = {
@@ -156,8 +165,25 @@ module.exports = function processMap(json, options) {
                     width: areas[j].width / map.tilesize,
                     height: areas[j].height / map.tilesize,
                     type: areas[j].type,
-                    nb: nb
+                    nb: nb,
                 };
+
+                if (mc >= 0){
+                    map.roamingAreas[j].mc = mc;              
+                }else if(lq >= 0){
+                    map.roamingAreas[j].lq = lq;
+                }
+
+                if(areas[j].properties.items){
+                    map.roamingAreas[j]['i'] = _.map(areas[j].properties.items.split(','), function(name) {
+                        return Types.getKindFromString(name);
+                    });
+                    var value = areas[j].properties.tx;
+                    map.roamingAreas[j]['tx'] = (isNumber(parseInt(value, 10))) ? parseInt(value, 10) : value;
+                    value = areas[j].properties.ty;
+                    map.roamingAreas[j]['ty'] = (isNumber(parseInt(value, 10))) ? parseInt(value, 10) : value;
+                }
+
             }
         }
         // Chest Areas
@@ -207,6 +233,32 @@ module.exports = function processMap(json, options) {
                 });
 
                 map.staticChests.push(newChest);
+            });
+        }
+        // Static Monsters -- KingdomMole
+        else if (layerName === "monsters" && mode === "server") {
+            log.info("** Processing static monsters...");
+            var monsters = layer.objects;
+
+            // iterate through the static chests
+            _.each(monsters, function(monster) {
+                var newMonster = {
+                    x: monster.x / map.tilesize,
+                    y: monster.y / map.tilesize,
+                    type: monster.type
+                }
+                if(monster.properties.mc){
+                    newMonster.mc = monster.properties.mc;
+                }else if(monster.properties.lq){
+                    newMonster.lq = monster.properties.lq;
+                }else if(monster.properties.tut){
+                    newMonster.tut = monster.properties.tut;
+                    newMonster.lang = monster.properties.lang;
+                }else{
+                    newMonster.mc = 0;
+                }
+                // get items
+                map.staticMonsters.push(newMonster);
             });
         }
         // Music Trigger Areas

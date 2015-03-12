@@ -103,7 +103,8 @@ WS.WebsocketServer = Server.extend({
             // Use 'connect' for its static module
             var connect = require('connect');
             var app = connect();
-
+            var compression = require('compression')
+            app.use(compression());
             // Serve everything in the client subdirectory statically
             var serveStatic = require('serve-static');
             app.use(serveStatic('client', {'index': ['index.html']}));
@@ -116,6 +117,31 @@ WS.WebsocketServer = Server.extend({
             app.use(function handleDynamicPageRequests(request, response) {
                 var path = url.parse(request.url).pathname;
                 switch (path) {
+                    case '/scoreboard':
+                        if(self.scoreboardCallback){
+                            response.writeHead(200);
+                            var s = []
+                            self.scoreboard.players.sort(function(a, b) {
+                                return b.exp - a.exp;
+                            });
+                            response.write('<!doctype html><html><head>')
+                            response.write('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">');
+                            response.write('<link rel="stylesheet" href="css/scoreboard.css" type="text/css">');
+                            response.write('</head><body>')
+                            s.push('<div class="container">')
+                            s.push('<h1>Scoreboard - KingdomMole </h1>')
+                            s.push('<table class="table">');
+                            s.push('<tr><td>Player Name</td><td>Experience Point</td></tr>');
+                            for (i in self.scoreboard.players){
+                                var p = self.scoreboard.players[i];
+                                s.push('<tr><td>'+p.name+'</td><td>'+p.exp+'</td></tr>');
+                            }
+                            s.push('</table></div>');
+                            response.write(s.join('\n'));
+                            response.write('</body></html>')
+                            // response.write(self.scoreboardCallback());
+                        }
+                        break;
                     case '/status':
                         // The server status page
                         if (self.statusCallback) {
@@ -238,7 +264,11 @@ WS.WebsocketServer = Server.extend({
 
     onRequestStatus: function (statusCallback) {
         this.statusCallback = statusCallback;
-    }
+    },
+
+    onRequestScoreboard: function (scoreboardCallback) {
+        this.scoreboardCallback = scoreboardCallback;
+    },
 });
 
 

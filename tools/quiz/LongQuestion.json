@@ -1,0 +1,267 @@
+{
+ "comment": [
+  "In current stage, each section can only have one long question", 
+  "It is one-base, section zero used to prevent question undefine"
+ ], 
+ "sections": [
+  {
+   "comment": [], 
+   "description": "section 0", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "C0", 
+     "languages": [
+      "C"
+     ], 
+     "output": "Hello World<br/>", 
+     "input": "", 
+     "description": "Print 'Hello World' with a newline character !!!"
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 1", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "C1", 
+     "languages": [
+      "C"
+     ], 
+     "output": "\\\\I will save the World//<br/>", 
+     "input": "", 
+     "description": "Print '\\\\I will save the World//' with a newline character !!!"
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 2", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "C2", 
+     "languages": [
+      "C"
+     ], 
+     "output": "I am 100% sure it is easy<br/>", 
+     "input": "", 
+     "description": "Print 'I am 100% sure it is easy' with a newline character !!!"
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 3", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "C3", 
+     "languages": [
+      "C"
+     ], 
+     "output": "3<br/>", 
+     "input": "1 2<br/>", 
+     "description": "Read two integers from stdin and print out the sum of the integers !!!"
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 4", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "C4", 
+     "languages": [
+      "C"
+     ], 
+     "output": "Buzz<br/>11<br/>Fizz<br/>13<br/>14<br/>FizzBuzz<br/>", 
+     "input": "10 15<br/>", 
+     "description": "Read two numbers a, b and print the numbers from a to b with a new line character.<br/>Notice the exception stated below.<br/>Number divisible by three is replaced by the word 'Fizz' and divisible <br/>by five by the word 'Buzz'. Numbers divisible by both become FizzBuzz."
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 5", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "C5", 
+     "languages": [
+      "C"
+     ], 
+     "output": "True<br/>False<br/>True<br/>", 
+     "input": "2000<br/>2100<br/>2012", 
+     "description": "Read a sequence number which represent years<br/>If it is a leap year then print 'True',<br/>else print 'False'. Don't forget a newline character.<br/>Stop until there are no input.<br/>(A leap year is a multiple of 4, and if it is a multiple of 100, <br/>it must also be a multiple of 400."
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 6", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L3Q4", 
+     "languages": [
+      "C"
+     ], 
+     "output": "2.37 0.63<br/>", 
+     "input": "2 -6 3<br/>", 
+     "description": "Please\tsolve a quadratic equation in form of ax^2 + bx + c = 0, where a, b, and c are integers. <br/>Note that in the test cases, both a and b cannot be 0 at the same time.<br/>Please rounded the solution to two decimal places.<br/>If there are two solutions, print the bigger one first<br/>If there are one solution, print it out.<br/>If there are no real solution, print 'no solution'"
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 7", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L3Q5", 
+     "languages": [
+      "C"
+     ], 
+     "output": "CHEATED<br/>", 
+     "input": "31 1<br/>", 
+     "description": "First number is a decimal number, the second number is the first number in Base X.<br/>Input contain digits only, and the range of input is in range [1,999] <br/>Find X. If there is no such X, print \"CHEATED\""
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 8", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L4Q5", 
+     "languages": [
+      "C"
+     ], 
+     "output": "no<br/>", 
+     "input": "2147483648<br/>", 
+     "description": "Given a positive number.<br/>:If the input is a prime number, print \"yes\". Else, print \"no\"."
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 9", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L4Q6", 
+     "languages": [
+      "C"
+     ], 
+     "output": "36: 2 2 3 3<br/>", 
+     "input": "36<br/>", 
+     "description": "Print a list of all prime factors of the input number,<br/>in an ascending order."
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 10", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L3Q1", 
+     "languages": [
+      "C"
+     ], 
+     "output": "+ve<br/>odd<br/>", 
+     "input": "25383<br/>", 
+     "description": "Write a program to read a decimal integer i from the user and print an analysis of the input.<br/>If the number is zero, print \"zero\" and done.<br/>If the number is positive, print \"+ve\" followed by checking whether the number is even or odd <br/>Print \"even\" or \"odd\" accordingly.<br/>If the number is negative, print \"-ve\" followed by printing the unit (last) digit of the number."
+    }, 
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L3Q2", 
+     "languages": [
+      "C"
+     ], 
+     "output": "yes<br/>", 
+     "input": "Accpetor: 0<br/>Donor: 0<br/>", 
+     "description": "Write a program  to perform blood-type  matching. It  reads two  decimal integers, <br/>coded to represent a donor's blood-type and an acceptor's blood-type.<br/>It prints an analysis of the inputs.<br/>Input coding: 0 means O-type; 1 means A-type; 2 means B-type; 3 means AB-type<br/>Rules:<br/>O-type acceptors may ONLY receive blood transfer from O-type donors.<br/>A-type acceptors may receive blood transfer from O-type or A-type donors.<br/>B-type acceptors may receive blood transfer from O-type or B-type donors.<br/>AB-type acceptors may receive blood transfer from ALL types of donors.<br/>Determine if the transfer is feasible, print \"yes\" or \"no\" accordingly."
+    }, 
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L3Q3", 
+     "languages": [
+      "C"
+     ], 
+     "output": "Northern Middle Latitude<br/>", 
+     "input": "51.300<br/>", 
+     "description": "The program obtains a latitude reading in degree (\u7def\u5ea6) from the user and <br/>determines the geographical region according to the following classification:<br/>Input latitude (in degree) Classification<br/>> +90 Invalid<br/>+90 North Pole<br/>(+66.5, +90) Arctic Region<br/>+66.5 Arctic Circle<br/>(+23.5, +66.5) Northern Middle Latitude<br/>+23.5 Tropic of Cancer<br/>(0, +23.5) Northern Tropical Zone<br/>0 Equator<br/>(-23.5, 0) Southern Tropical Zone<br/>-23.5 Tropic of Capricorn<br/>(-66.5, -23.5) Southern Middle Latitude<br/>-66.5 Antarctic Circle<br/>(-90, -66.5) Antarctic Region<br/>-90 South Pole<br/>< -90 Invalid"
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 10", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L4Q1", 
+     "languages": [
+      "C"
+     ], 
+     "output": "try again<br/>good!<br/>", 
+     "input": "5<br/>9<br/>2<br/>44<br/>", 
+     "description": "Write a program to read a positive integer x. Then we read an integer which is a certain multiple of x.<br/>If the input is correct, print \u201cgood!\u201d and exit  the program. <br/>Otherwise, if  the input is not a multiple of x, print out \u201ctry again\u201d <br/>and repeat the process again from the beginning."
+    }, 
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L4Q2", 
+     "languages": [
+      "C"
+     ], 
+     "output": "try again<br/>2 to 100 please<br/>good!<br/>", 
+     "input": "15<br/>63<br/>200<br/>14<br/>28<br/>", 
+     "description": "Write a program to read a positive integer x. check if x is within the range of 2 to 100. <br/>If x is not within the range of 2 to 100, print out \u201c2 to 100 please\u201d <br/>Then we read an integer which is a certain multiple of x.<br/>and read another integer for x again. <br/>If the input is correct, print \u201cgood!\u201d and exit  the program. <br/>Otherwise, if  the input is not a multiple of x, print out \u201ctry again\u201d <br/>and repeat the process again from the beginning."
+    }, 
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L4Q3", 
+     "languages": [
+      "C"
+     ], 
+     "output": "5,*,7,*,9,*,11<br/>", 
+     "input": "5 11 2<br/>", 
+     "description": "Write a program to input 3 integers a, b, c in range of 1 to 20 consecutively. <br/>If b is greater than or equal to a, the program should print out integers  from a to b (inclusive) <br/>one by one, separated by  comma. If  the integer  to  be  printed out is  divisible  by c, instead of <br/>printing out the integer, print out \u201c*\u201d. <br/>If a is greater than b, just print out \u201cno numbers\u201d and end the program."
+    }, 
+    {
+     "comment": [], 
+     "name": "ESTR1002Y1415L3Q4", 
+     "languages": [
+      "C"
+     ], 
+     "output": "34<br/>", 
+     "input": "5<br/>", 
+     "description": "Write a program to read an integer n, where n \u2265 2, and compute the following formula:<br/>(2*2-5)+(3*3-5)+...+[(n-1)*(n-1)-5]+(n*n-5)<br/>You can assume that all the inputs must be integers.  But if the user enters an integer less than two, <br/>the program will print \u201cinvalid input\u201d. "
+    }
+   ]
+  }, 
+  {
+   "comment": [], 
+   "description": "section 11", 
+   "questions": [
+    {
+     "comment": [], 
+     "name": "C6", 
+     "languages": [
+      "C"
+     ], 
+     "output": "4<br/>", 
+     "input": "3 4<br/>4 2 3 9<br/>1 5 6 9<br/>2 3 4 9", 
+     "description": "Read a matrix of integer and find out the smallest value among the maximum of the columns."
+    }
+   ]
+  }
+ ], 
+ "description": "question bank"
+}

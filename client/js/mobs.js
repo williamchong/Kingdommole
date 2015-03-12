@@ -71,9 +71,9 @@ define(['mob', 'timer'], function(Mob, Timer) {
             init: function(id) {
                 this._super(id, Types.Entities.GOBLIN);
                 this.moveSpeed = 150;
-                this.atkSpeed = 60;
+                this.atkSpeed = 40;
                 this.idleSpeed = 600;
-                this.setAttackRate(700);
+                this.setAttackRate(5000);
             }
         }),
 
@@ -143,7 +143,7 @@ define(['mob', 'timer'], function(Mob, Timer) {
                 this.idleSpeed = 400;
                 this.atkRate = 2000;
                 this.attackCooldown = new Timer(this.atkRate);
-                this.aggroRange = 3;
+                this.aggroRange = 1;
             },
 
             idle: function(orientation) {

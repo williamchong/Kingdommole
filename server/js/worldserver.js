@@ -124,7 +124,7 @@ module.exports = World = cls.Class.extend({
             });
 
             player.onExit(function() {
-                log.info(player.name + " has left the game.");
+                log.info(player.name + "("+ player.x +","+player.y+") has left the game.");
                 if(player.hasGuild()){
 					self.pushToGuild(player.getGuild(), new Messages.Guild(Types.Messages.GUILDACTION.DISCONNECT, player.name), player);
 				}
@@ -176,6 +176,17 @@ module.exports = World = cls.Class.extend({
             // Populate all mob "roaming" areas
             _.each(self.map.mobAreas, function(a) {
                 var area = new MobArea(a.id, a.nb, a.type, a.x, a.y, a.width, a.height, self);
+                // add item if it is defined
+                if(a.i)
+                    area.addChest(a.tx, a.ty, a.i);
+                // add Multiple Choice Section
+                if(a.mc >= 0)
+                    area.mc = a.mc;
+                else if(a.lq >= 0){
+                    area.lq = a.lq;
+                }
+                else
+                    area.mc = 0;
                 area.spawnMobs();
                 area.onEmpty(self.handleEmptyMobArea.bind(self, area));
 
@@ -354,7 +365,8 @@ module.exports = World = cls.Class.extend({
         for(var id in this.outgoingQueues) {
             if(this.outgoingQueues[id].length > 0) {
                 connection = this.server.getConnection(id);
-                connection.send(this.outgoingQueues[id]);
+                if(connection)
+                    connection.send(this.outgoingQueues[id]);
                 this.outgoingQueues[id] = [];
             }
         }
@@ -632,7 +644,9 @@ module.exports = World = cls.Class.extend({
 
     broadcastAttacker: function(character) {
         if(character) {
-            this.pushToAdjacentGroups(character.group, character.attack(), character.id);
+            // we don't need to ignore player now,
+            this.pushToAdjacentGroups(character.group, character.attack(), null);
+            // this.pushToAdjacentGroups(character.group, character.attack(), character.id);
         }
         if(this.attack_callback) {
             this.attack_callback(character);
@@ -698,12 +712,12 @@ module.exports = World = cls.Class.extend({
         _.each(this.map.staticEntities, function(kindName, tid) {
             var kind = Types.getKindFromString(kindName),
                 pos = self.map.tileIndexToGridPosition(tid);
-
             if(Types.isNpc(kind)) {
                 self.addNpc(kind, pos.x + 1, pos.y);
             }
             if(Types.isMob(kind)) {
                 var mob = new Mob('7' + kind + count++, kind, pos.x + 1, pos.y);
+                mob.mc = 0;
                 mob.onRespawn(function() {
                     mob.isDead = false;
                     self.addMob(mob);
@@ -718,6 +732,32 @@ module.exports = World = cls.Class.extend({
             if(Types.isItem(kind)) {
                 self.addStaticItem(self.createItem(kind, pos.x + 1, pos.y));
             }
+        });
+        //KingdomMole spawnStaticMonsters
+        _.each(this.map.staticMonsters, function(monsters){
+            var kind = Types.getKindFromString(monsters.type);
+            var mob = new Mob('9' + kind + count++, kind, monsters.x, monsters.y);
+            if(monsters.mc >= 0){
+                mob.mc = monsters.mc;
+            }else if(monsters.lq >= 0){
+                mob.lq = monsters.lq;
+            }else if(monsters.tut >= 0){
+                mob.tut = monsters.tut;
+                mob.lang = monsters.lang;
+            }else{
+                mob.mc = 0;
+            }
+            mob.onRespawn(function() {
+                mob.isDead = false;
+                self.addMob(mob);
+                if(mob.area && mob.area instanceof ChestArea) {
+                    mob.area.addToArea(mob);
+                }
+            });
+            mob.onMove(self.onMobMoveCallback.bind(self));
+            self.addMob(mob);
+            // this line have to be remove if mob area going to replace chest area
+            self.tryAddingMobToChestArea(mob);
         });
     },
 
@@ -945,7 +985,11 @@ module.exports = World = cls.Class.extend({
     },
 
     handleEmptyMobArea: function(area) {
-
+        // check whether there are chest
+        if(area && area.items) {
+            var chest = this.addItem(this.createChest(area.chestX, area.chestY, area.items));
+            this.handleItemDespawn(chest);
+        }
     },
 
     handleEmptyChestArea: function(area) {

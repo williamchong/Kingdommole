@@ -1,9 +1,16 @@
+// Starting point.
+// register web component callback here
+// log in and create new character are called here, the functions are defined in app.s
+// create game, tell game to load map
 
 define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
     var app, game;
 
+    // register functions of web components.
     var initApp = function() {
         $(document).ready(function() {
+               
+             
             app = new App();
             app.center();
 
@@ -21,6 +28,7 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                 // Remove chat placeholder
                 $('#chatinput').removeAttr('placeholder');
             }
+            
 
             $('body').click(function(event) {
                 if($('#parchment').hasClass('credits')) {
@@ -63,6 +71,10 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                     clearInterval(app.blinkInterval);
                 }
                 $(this).removeClass('blink');
+            });
+            $('#editorbutton').click(function() {
+                app.toggleEditor();
+                game.escapeLQ(editor.getValue());
             });
 
             $('#instructions').click(function() {
@@ -196,6 +208,8 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
         });
     };
 
+    // create game and register functions of web components of game.
+    // game call back functions are registered here
     var initGame = function() {
         require(['game'], function(Game) {
 
@@ -205,7 +219,7 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                 input = document.getElementById("chatinput");
 
             game = new Game(app);
-            game.setup('#bubbles', canvas, background, foreground, input);
+            game.setup('#bubbles','#mcq', canvas, background, foreground, input);
             game.setStorage(app.storage);
             app.setGame(game);
 
@@ -294,7 +308,7 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
             $('#pwinput').attr('value', '');
             $('#pwinput2').attr('value', '');
             $('#emailinput').attr('value', '');
-           $('#chatbox').attr('value', '');
+            $('#chatbox').attr('value', '');
 
             if(game.renderer.mobile || game.renderer.tablet) {
                 $('#foreground').bind('touchstart', function(event) {
@@ -355,6 +369,9 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                 game.audioManager.playSound("revive");
                 game.respawn();
                 $('body').removeClass('death');
+                 if($('#editor').hasClass('active')){
+                    app.toggleEditor();
+                 }
             });
 
             $(document).mousemove(function(event) {
@@ -368,7 +385,7 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
             $(document).keyup(function(e) {
                 var key = e.which;
                 
-                if (game.started && !$('#chatbox').hasClass('active'))
+                if (game.started && !$('#chatbox').hasClass('active') && !(document.activeElement.className=="ace_text-input"))
                 {
                     switch(key) {
                         case Types.Keys.LEFT:
@@ -406,15 +423,22 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                     $chat = $('#chatinput');
 
                 if(key === Types.Keys.ENTER) {
-                    if($('#chatbox').hasClass('active')) {
+                    if (!(document.activeElement.className=="ace_text-input")){
+                        if($('#chatbox').hasClass('active')) {
                         app.hideChat();
-                    } else {
+                        } else {
                         app.showChat();
+                        }
                     }
+                } else
+                if(key === 27) {
+                     if($('#editor').hasClass('active')) {
+                        app.toggleEditor();
+                     }
                 }
                 else if(key === 16)
                     game.pvpFlag = true;
-                if (game.started && !$('#chatbox').hasClass('active')) {
+                if (game.started && !$('#chatbox').hasClass('active') && !(document.activeElement.className=="ace_text-input")) {
                     pos = {
                         x: game.player.gridX,
                         y: game.player.gridY
@@ -529,14 +553,18 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                 game.audioManager.toggle();
             });
 
+            
+
             $(document).bind("keydown", function(e) {
                 var key = e.which,
                     $chat = $('#chatinput');
 
                 if(key === 13) { // Enter
                     if(game.started) {
-                        $chat.focus();
+                       if (!document.activeElement.className=="ace_text-input"){
+                         $chat.focus();
                         return false;
+                    }
                     } else {
                         if(app.loginFormActive() || app.createNewCharacterFormActive()) {
                             $('input').blur();      // exit keyboard on mobile
@@ -567,6 +595,11 @@ define(['jquery', 'app', 'entrypoint'], function($, App, EntryPoint) {
                     // }
                 }
             });
+                $('#lq_submit').click(function(e) {
+                        game.submitLQ(editor.getValue());
+                        
+                });
+             
 
              $('#healthbar').click(function(e) {
                 var hb = $('#healthbar'),

@@ -115,7 +115,7 @@ var Mob = Character.extend({
               if(this.hateCount > size*1.3){
                 this.hateCount = 0;
                 i = size - 1 - Utils.random(size-1);
-                log.info("CHANGE TARGET: " + i);
+                // log.info("CHANGE TARGET: " + i);
               } else{
                 return 0;
               }

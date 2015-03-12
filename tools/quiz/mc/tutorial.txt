@@ -1,0 +1,11 @@
+@section 0
+#It is one-base, section zero used to prevent question undefine
+$C
+
+?Fill in the blank:
+-You can learn (blank) in this game!
+!Programming
+!Coding
+*Chinese
+*History
+*Nothing

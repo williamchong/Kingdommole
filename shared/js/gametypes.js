@@ -51,7 +51,17 @@ Types = {
 			TALK: 14,
 			JOIN: 15,
 			POPULATION: 16
-		}
+		},
+        QUIZ: 31,
+        QUIZACTION: {
+            REQUEST: 1,
+            POSTMC: 2,
+            POSTCHOICE: 3,
+            MCRESULT: 4,
+            POSTLQ: 5,
+            POSTCODE: 6,
+            LQRESULT: 7
+        }
     },
 
     Entities: {
@@ -147,15 +157,15 @@ Types = {
 
 var kinds = {
     warrior: [Types.Entities.WARRIOR, "player"],
-
-    rat: [Types.Entities.RAT, "mob", 5, 2],
+    // [object_id, type, exp, lv]
+    rat: [Types.Entities.RAT, "mob", 1, 2],
+    crab: [Types.Entities.CRAB, "mob", 5, 1],
+    goblin: [Types.Entities.GOBLIN, "mob", 10, 5],
+    snake: [Types.Entities.SNAKE, "mob", 20, 10],
     skeleton: [Types.Entities.SKELETON , "mob", 15, 8],
-    goblin: [Types.Entities.GOBLIN, "mob", 8, 5],
     ogre: [Types.Entities.OGRE, "mob", 27, 12],
     spectre: [Types.Entities.SPECTRE, "mob", 53, 21],
     deathknight: [Types.Entities.DEATHKNIGHT, "mob", 70, 24],
-    crab: [Types.Entities.CRAB, "mob", 1, 1],
-    snake: [Types.Entities.SNAKE, "mob", 25, 10],
     bat: [Types.Entities.BAT, "mob", 6, 3,],
     wizard: [Types.Entities.WIZARD, "mob", 7, 1],
     eye: [Types.Entities.EYE, "mob",45, 18],

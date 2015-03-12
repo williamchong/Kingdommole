@@ -16,6 +16,12 @@ var MobArea = Area.extend({
         this.initRoaming();
     },
 
+    addChest: function (cx, cy, items) {
+        this.items = items;
+        this.chestX = cx;
+        this.chestY = cy;
+    },
+
     spawnMobs: function () {
         for (var i = 0; i < this.nb; i += 1) {
             this.addToArea(this._createMobInsideArea());
@@ -27,7 +33,14 @@ var MobArea = Area.extend({
         var Mob = require('./mob');
         var pos = this._getRandomPositionInsideArea();
         var mob = new Mob('1' + this.id + '' + k + '' + this.entities.length, k, pos.x, pos.y);
-
+        if(this.mc >= 0)
+            mob.mc = this.mc
+        else if(this.lq >= 0) {
+            mob.lq = this.lq
+        }
+        else{
+            mob.mc = 0
+        }
         mob.onMove(this.world.onMobMoveCallback.bind(this.world));
 
         return mob;

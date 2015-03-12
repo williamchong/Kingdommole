@@ -1,3 +1,6 @@
+// function new charater page is defined here
+// storage created here
+// the mob infomation is defined in initTargetHud
 
 define(['jquery', 'storage'], function($, Storage) {
 
@@ -65,6 +68,7 @@ define(['jquery', 'storage'], function($, Storage) {
             }
         },
 
+        // when player click login or create, this function will be called
         tryStartingGame: function() {
             if(this.starting) return;        // Already loading
 
@@ -340,11 +344,11 @@ define(['jquery', 'storage'], function($, Storage) {
             });
         },
          initExpBar: function(){
-            var maxHeight = $("#expbar").height();
+            var maxHeight = $("#expbar").width();
 
             this.game.onPlayerExpChange(function(expInThisLevel, expForLevelUp){
                var barHeight = Math.round((maxHeight / expForLevelUp) * (expInThisLevel > 0 ? expInThisLevel : 0));
-               $("#expbar").css('height', barHeight + "px");
+               $("#expbar").css('width', barHeight + "px");
             });
         },
 
@@ -421,6 +425,23 @@ define(['jquery', 'storage'], function($, Storage) {
             }
             this.resetPage();
             $('#achievements').toggleClass('active');
+        },
+
+        toggleEditor: function() {
+            $("#result").empty();
+            if($('#instructions').hasClass('active')) {
+                this.toggleInstructions();
+                $('#helpbutton').removeClass('active');
+            } if($('#achievements').hasClass('active')) {
+                this.toggleAchievements();
+                $('#achievementsbutton').removeClass('active');
+            }
+             if($('#achievements').hasClass('active')) {
+                this.toggleAchievements();
+                $('#achievementsbutton').removeClass('active');
+            }
+            this.resetPage();
+            $('#editor').toggleClass('active');
         },
 
         resetPage: function() {

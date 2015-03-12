@@ -10,3 +10,5 @@ config_local*
 browserquest.conf
 *.sublime-project
 *.sublime-workspace
+nohup.out
+nohup.txt

@@ -20,6 +20,7 @@ var Types = require('../../shared/js/gametypes');
             this.formats[Types.Messages.OPEN] = ['n'],
             this.formats[Types.Messages.CHECK] = ['n'],
             this.formats[Types.Messages.ACHIEVEMENT] = ['n', 's']
+            // dynamic format need to be added to 'check' function
         },
 
         check: function (msg) {
@@ -72,7 +73,10 @@ var Types = require('../../shared/js/gametypes');
 					return false;
 				}
 			}
-            else {
+            else if (type === Types.Messages.QUIZ){
+                // log.error('format check not implemented!!!!')
+                return true;
+            } else {
                 log.error('Unknown message type: ' + type);
                 return false;
             }

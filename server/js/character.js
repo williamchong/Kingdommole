@@ -79,7 +79,7 @@ var Character = Entity.extend({
     removeAttacker: function (entity) {
         if (entity && entity.id in this.attackers) {
             delete this.attackers[entity.id];
-            log.debug(this.id + ' REMOVED ATTACKER ' + entity.id);
+            // log.debug(this.id + ' REMOVED ATTACKER ' + entity.id);
         }
     },
 

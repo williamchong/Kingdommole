@@ -1,0 +1,26 @@
+.table{
+    font-size:20px;
+   
+    margin:20px;
+}
+
+@font-face {
+        font-family: 'GraphicPixel';
+        src: url('../fonts/graphicpixel-webfont.eot');
+        src: url('../fonts/graphicpixel-webfont.eot?#iefix') format('embedded-opentype'),
+             url('../fonts/graphicpixel-webfont.woff') format('woff'),
+             url('../fonts/graphicpixel-webfont.ttf') format('truetype'),
+             url('../fonts/graphicpixel-webfont.svg#GraphicPixelRegular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+
+    }
+
+body {
+    margin:20px;
+    font-family: 'GraphicPixel';
+    color:white;}
+
+body {background:-moz-radial-gradient(rgba(0,0,0,0) 40%,rgba(0,0,0,1) 125%), url('../img/1/wood2.png') no-repeat 1587px 138px, url('../img/1/wood2.png') no-repeat 51px 519px, url('../img/1/wood3.png') no-repeat 228px 219px, url('../img/1/wood.png') repeat, #000; background-size:auto, 15px auto, 15px auto, 60px auto, 384px;}
+body {background:-webkit-gradient(radial, center center, 360, center center, 1200, from(rgba(0,0,0,0)), to(rgba(0,0,0,1))), url('../img/3/wood2.png') no-repeat 1587px 138px, url('../img/3/wood2.png') no-repeat 51px 519px, url('../img/3/wood3.png') no-repeat 228px 219px, url('../img/3/wood.png') repeat, #000; background-size:auto, 15px auto, 15px auto, 60px auto, 384px;}
+     

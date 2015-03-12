@@ -245,3 +245,78 @@ Messages.PVP = Message.extend({
     }
 });
 
+Messages.MultipleChoiceQuestion = Message.extend({
+    init: function(mid,question){
+        var msg = {}
+        msg.mid = mid;
+        msg.sid = question.sid;
+        msg.qid = question.qid;
+        msg.stem = question.stem;
+        msg.languages = question.languages;
+        msg.options = question.options.slice(0);
+        this.msg = msg
+    },
+    serialize: function(){
+        var ret = [Types.Messages.QUIZ,
+            Types.Messages.QUIZACTION.POSTMC,
+            this.msg];
+            // this.mid,
+            // this.sid,
+            // this.qid,
+            // this.stem,
+            // this.options];
+        // ret = _.flatten(ret);
+        return ret;
+    }
+});
+
+Messages.MultipleChoiceResult = Message.extend({
+    init: function(mid,sid,qid,result){
+        this.mid = mid;
+        this.sid = sid;
+        this.qid = qid;
+        this.result = result;
+    },
+    serialize: function(){
+        var ret = [Types.Messages.QUIZ,
+            Types.Messages.QUIZACTION.MCRESULT,
+            this.mid,
+            this.sid,
+            this.qid,
+            this.result];
+        return ret;
+    }
+});
+
+Messages.LongQuestion = Message.extend({
+    init: function(question){
+        this.msg = question
+    },
+    serialize: function(){
+        var ret = [Types.Messages.QUIZ,
+            Types.Messages.QUIZACTION.POSTLQ,
+            this.msg];
+        return ret;
+    }
+});
+
+Messages.LongQuestionResult = Message.extend({
+    init: function(result){
+        // this.mid = result.mid;
+        // this.status = result.compile_status;
+        // this.message = result.compile_message;
+        // this.hint = result.hint;
+        // this.result = result.result;
+        this.result = result;
+    },
+    serialize: function(){
+        var ret = [Types.Messages.QUIZ,
+            Types.Messages.QUIZACTION.LQRESULT,
+            // this.mid,
+            // this.status,
+            // this.message,
+            // this.hint,
+            this.result];
+        return ret;
+    }
+});

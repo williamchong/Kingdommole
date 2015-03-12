@@ -35,6 +35,8 @@ var Map = cls.Class.extend({
         this.chestAreas = thismap.chestAreas;
         this.staticChests = thismap.staticChests;
         this.staticEntities = thismap.staticEntities;
+        //KingdomMole
+        this.staticMonsters = thismap.staticMonsters;
         this.isLoaded = true;
 
         // zone groups
@@ -219,7 +221,8 @@ var Map = cls.Class.extend({
             area = this.startingAreas[i];
 
         return area.getRandomPosition();
-     },
+    },
+
     initPVPAreas: function(pvpList){
         var self = this;
 
@@ -228,7 +231,7 @@ var Map = cls.Class.extend({
             var pvpArea = new Area(pvp.id, pvp.x, pvp.y, pvp.w, pvp.h, null);
             self.pvpAreas.push(pvpArea);
         });
-   }
+    }
 });
 
 var pos = function (x, y) {

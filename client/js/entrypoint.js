@@ -4,7 +4,7 @@ define(['lib/sha1', 'util'],function() {
 		init: function(){
 			//"hashedID" ← use tools/sha1_encode.html to generate: function(){} ← action
 			this.hashes = {
-				"Obda3tBpL9VXsXsSsv5xB4QKNo4=": function(aGame){
+				"Jg9QdJQso22rlBGZ/2sZ/KomzN4=": function(aGame){
 					aGame.player.switchArmor(aGame.sprites["firefox"]);
 					aGame.showNotification("You enter the game as a fox, but not invincible…");
 				}

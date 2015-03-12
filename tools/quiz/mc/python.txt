@@ -1,0 +1,1267 @@
+@section 7
+#Simple Questions
+$Python
+
+?What is the file extension of python file?
+!.py
+!.pyc
+!.pyo
+!.pyd
+*.cc
+*.cpp
+*.c
+*.rb
+*.txt
+
+?Who designs python?
+!Guido van Rossum
+*snake
+*Kingdom Mole
+*python
+
+?When did python 2.0 release?
+!2000
+*1500
+*1700
+*2020
+
+@section 8
+# simple print
+$Python
+
+?What gets printed?
+-<pre>print('Hi');</pre>
+!Hi(newline)
+*Hi
+*Error
+*Hi(newline)(newline)
+
+?What gets printed?
+-<pre>print('Hi')</pre>
+!Hi(newline)
+*Hi
+*Error
+*Hi(newline)(newline)
+
+?What gets printed?
+-<pre>print('Hi\n');</pre>
+!Hi(newline)(newline)
+*Hi(newline)
+*Hi
+*Error
+
+?What gets printed?
+-<pre>print('Hi\n')</pre>
+!Hi(newline)(newline)
+*Hi(newline)
+*Hi
+*Error
+
+?What gets printed?
+-<pre>print'Hi';</pre>
+!Hi(newline)
+*Hi
+*Error
+*Hi(newline)(newline)
+
+?What gets printed?
+-<pre>print'Hi'</pre>
+!Hi(newline)
+*Hi
+*Error
+*Hi(newline)(newline)
+
+?What gets printed?
+-<pre>print'Hi\n';</pre>
+!Hi(newline)(newline)
+*Hi(newline)
+*Hi
+*Error
+
+?What gets printed?
+-<pre>print'Hi\n'</pre>
+!Hi(newline)(newline)
+*Hi(newline)
+*Hi
+*Error
+
+?What gets printed?
+-<pre>print("Hi");</pre>
+!Hi(newline)
+*Hi
+*Error
+*Hi(newline)(newline)
+
+?What gets printed?
+-<pre>print("Hi")</pre>
+!Hi(newline)
+*Hi
+*Error
+*Hi(newline)(newline)
+
+?What gets printed?
+-<pre>print("Hi\n");</pre>
+!Hi(newline)(newline)
+*Hi(newline)
+*Hi
+*Error
+
+?What gets printed?
+-<pre>print("Hi\n")</pre>
+!Hi(newline)(newline)
+*Hi(newline)
+*Hi
+*Error
+
+?What gets printed?
+-<pre>print"Hi";</pre>
+!Hi(newline)
+*Hi
+*Error
+*Hi(newline)(newline)
+
+?What gets printed?
+-<pre>print"Hi"</pre>
+!Hi(newline)
+*Hi
+*Error
+*Hi(newline)(newline)
+
+?What gets printed?
+-<pre>print"Hi\n";</pre>
+!Hi(newline)(newline)
+*Hi(newline)
+*Hi
+*Error
+
+?What gets printed?
+-<pre>print"Hi\n"</pre>
+!Hi(newline)(newline)
+*Hi(newline)
+*Hi
+*Error
+
+@section 9
+#variable type
+$Python
+?What is the type of the variable?
+-variable = 0 + 1
+!int
+*float
+*complex
+*str
+*char
+*error
+
+?What is the type of the variable?
+-variable = 1.0 + 1
+*int
+!float
+*complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 1 + 1.0
+*int
+!float
+*complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 0.0 + 1
+*int
+!float
+*complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 1 + 0.0
+*int
+!float
+*complex
+*str
+*char
+*bool
+*error
+
+
+?What is the type of the variable?
+-variable = 'a'
+*int
+*float
+*complex
+!str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 'a' + 'b'
+*int
+*float
+*complex
+!str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 1 + 'b'
+*int
+*float
+*complex
+*str
+*char
+*bool
+!error
+
+?What is the type of the variable?
+-variable = 'a' + 1
+*int
+*float
+*complex
+*str
+*char
+*bool
+!error
+
+?What is the type of the variable?
+-variable = 'KingdomMole'
+*int
+*float
+*complex
+!str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = True
+*int
+*float
+*complex
+*str
+*char
+!bool
+*error
+
+?What is the type of the variable?
+-variable = False
+*int
+*float
+*complex
+*str
+*char
+!bool
+*error
+
+?What is the type of the variable?
+-variable = true
+*int
+*float
+*complex
+*str
+*char
+*bool
+!error
+
+?What is the type of the variable?
+-variable = false
+*int
+*float
+*complex
+*str
+*char
+*bool
+!error
+
+?What is the type of the variable?
+-variable = 5 / 2
+!int
+*float
+*complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 4 / 2
+!int
+*float
+*complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 4.0 / 2
+*int
+!float
+*complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 4 / 2.0
+*int
+!float
+*complex
+*str
+*char
+*bool
+*error
+
+
+?What is the type of the variable?
+-variable = 5.0 / 2
+*int
+!float
+*complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 5 / 2.0
+*int
+!float
+*complex
+*str
+*char
+*bool
+*error
+
+@section 10
+# dynamic typing
+$Python
+
+?<pre>
+-num = 1234
+-Num = 'num'
+-</pre>
+-What is the type of the variable num?
+!int
+*str
+*char
+*bool
+*float
+*complex
+*NoneType
+
+?<pre>
+-num = 1234
+-Num = 'num'
+-</pre>
+-What is the type of the variable Num?
+*int
+!str
+*char
+*bool
+*float
+*NoneType
+*complex
+
+?<pre>
+-num = 1234
+-Num = num
+-</pre>
+-What is the type of the variable Num?
+!int
+*str
+*char
+*bool
+*float
+*NoneType
+*complex
+
+?<pre>
+-num = 1234
+-num = 'num'
+-</pre>
+-What is the type of the variable num?
+*int
+!str
+*char
+*bool
+*float
+*NoneType
+*complex
+
+?<pre>
+-Num = None
+-num = 1234
+-num = 'num'
+-</pre>
+-What is the type of the variable Num?
+*int
+*str
+*char
+*bool
+*float
+!NoneType
+*complex
+
+?<pre>
+-num = 1234
+-num /= 1.0
+-</pre>
+-What is the type of the variable num?
+*int
+*str
+*char
+*bool
+!float
+*NoneType
+*complex
+
+?<pre>
+-num = 1234
+-num += 0j
+-</pre>
+-What is the type of the variable num?
+*int
+*str
+*char
+*bool
+*float
+*NoneType
+!complex
+
+?<pre>
+-num = 10.0
+-num = 20 / 2
+-</pre>
+-What is the type of the variable num?
+!int
+*str
+*char
+*bool
+*float
+*NoneType
+*complex
+
+@section 11
+#List (Future Devlopment: negative index, append, +, pop)
+$Python
+
+?What get print?
+-<pre>
+-drinks = ['tea','coffee', 'water', 'coke']
+-print len(drinks)
+-</pre>
+*1
+*2
+*3
+!4
+*5
+*6
+
+?What get print?
+-<pre>
+-drinks = ['tea', 'coffee', None]
+-print len(drinks)
+-</pre>
+*1
+*2
+!3
+*4
+*5
+*6
+
+?What get print?
+-<pre>
+-drinks = ['tea', 'coffee', 'water', 'coke']
+-print drinks[0]
+-</pre>
+!tea
+*coffee
+*water
+*coke
+*None
+*Error
+
+?What get print?
+-<pre>
+-drinks = ['tea', 'coffee', 'water', 'coke']
+-print drinks[1]
+-</pre>
+*tea
+!coffee
+*water
+*coke
+*None
+*Error
+
+?What get print?
+-<pre>
+-drinks = ['tea', 'coffee', 'water', 'coke']
+-print drinks[2]
+-</pre>
+*tea
+*coffee
+!water
+*coke
+*None
+*Error
+
+?What get print?
+-<pre>
+-drinks = ['tea', 'coffee', 'water', 'coke']
+-print drinks[3]
+-</pre>
+*tea
+*coffee
+*water
+!coke
+*None
+*Error
+
+?What get print?
+-<pre>
+-drinks = ['tea', 'coffee', 'water', 'coke']
+-print drinks[4]
+-</pre>
+*tea
+*coffee
+*water
+*coke
+*None
+!Error
+
+?What get print?
+-<pre>
+-number = [1, 2, 3, 4]
+-number[3] = 'three'
+-print number[number[2]]
+-</pre>
+*1
+*2
+*3
+*4
+!three
+*Error
+
+?What get print?
+-<pre>
+-number = [1, 2, 3, 4]
+-number[3] = 'three'
+-print number[2]
+-</pre>
+*1
+*2
+!3
+*4
+*three
+*Error
+
+
+?What get print?
+-<pre>
+-number = [1, 2, 3, 4]
+-number[3] = 'three'
+-print number[2]
+-</pre>
+*1
+*2
+!3
+*4
+*three
+*Error
+
+@section 12
+# format string
+$Python
+
+?What symbol in formatting string indicate an integer?
+*%c
+!%d
+!%i
+*%s
+*%r
+*%f
+
+?What symbol in formatting string indicate an character?
+!%c
+*%d
+*%i
+*%s
+*%r
+*%f
+
+?What symbol in formatting string indicate an string?
+*%c
+*%d
+*%i
+!%s
+*%r
+*%f
+
+?What symbol in formatting string indicate an real number?
+*%c
+*%d
+*%i
+*%s
+!%f
+*%r
+
+@section 13
+# function
+$Python
+
+?what get print?
+-<pre>
+-color = 'red'
+-def shirt():
+-   print 'I have a %s shirt' % color
+-</pre>
+!Nothing
+*I have a red shirt
+*I have a yellow shirt
+*I have a blue shirt
+*I have a black shirt
+
+?what get print?
+-<pre>
+-color = 'red'
+-def shirt():
+-   print 'I have a %s shirt' % color
+-shirt()
+-</pre>
+*Nothing
+!I have a red shirt
+*I have a yellow shirt
+*I have a blue shirt
+*I have a black shirt
+
+?what get print?
+-<pre>
+-color = 'red'
+-def shirt(color):
+-   print 'I have a %s shirt' % color
+-shirt('blue')
+-</pre>
+*Nothing
+*I have a red shirt
+*I have a yellow shirt
+!I have a blue shirt
+*I have a black shirt
+
+?what get print?
+-<pre>
+-color = 'red'
+-def shirt(color):
+-   color = 'yellow'
+-   print 'I have a %s shirt' % color
+-shirt('white')
+-</pre>
+*Nothing
+*I have a red shirt
+!I have a yellow shirt
+*I have a blue shirt
+*I have a black shirt
+
+?what get print?
+-<pre>
+-color = 'red'
+-def shirt(color):
+-   color = 'yellow'
+-print 'I have a %s shirt' % color
+-shirt('white')
+-</pre>
+*Nothing
+!I have a red shirt
+*I have a yellow shirt
+*I have a blue shirt
+*I have a black shirt
+
+?what get print?
+-<pre>
+-color = 'red'
+-def shirt(color):
+-   color = color
+-shirt('white')
+-print 'I have a %s shirt' % color
+-</pre>
+*Nothing
+!I have a red shirt
+*I have a yellow shirt
+*I have a blue shirt
+*I have a black shirt
+
+@section 14
+# if then else, (add question about priority of and , or)
+$python
+
+?what get print?
+-<pre>
+-x = 0
+-if ( x == 0):
+-   x += 1
+-else :
+-   x -= 1
+-print x
+-</pre>
+*-2
+*-1
+*0
+!1
+*2
+
+?what get print?
+-<pre>
+-x = 1
+-if ( x == 0):
+-   x += 1
+-else :
+-   x -= 1
+-print x
+-</pre>
+*-2
+*-1
+!0
+*1
+*2
+
+?what get print?
+-<pre>
+-x = -1
+-if ( x == 0):
+-   x += 1
+-else :
+-   x -= 1
+-print x
+-</pre>
+!-2
+*-1
+*0
+*1
+*2
+
+?what get print?
+-<pre>
+-x = 0
+-if ( x == 0):
+-   x += 1
+-elif ((x % 2) == 0):
+-   x -= 1
+-else:
+-   x *= 2
+-print x
+-</pre>
+*-2
+*-1
+*0
+!1
+*2
+
+?what get print?
+-<pre>
+-x = -1
+-if ( x == 0):
+-   x += 1
+-elif ((x % 2) == 0):
+-   x -= 1
+-else:
+-   x *= 2
+-print x
+-</pre>
+!-2
+*-1
+*0
+*1
+*2
+
+?what get print?
+-<pre>
+-x = 2
+-if ( x == 0):
+-   x += 1
+-elif ((x % 2) == 0):
+-   x -= 1
+-else:
+-   x *= 2
+-print x
+-</pre>
+*-2
+*-1
+*0
+!1
+*2
+
+?what get print?
+-<pre>
+-x = 1
+-if ( x == 0):
+-   x += 1
+-elif ((x % 2) == 0):
+-   x -= 1
+-else:
+-   x *= 2
+-print x
+-</pre>
+*-2
+*-1
+*0
+*1
+!2
+
+?what get print?
+-<pre>
+-x = -2
+-if ( x == 0):
+-   x -= 1
+-elif ((x % 2) == 0):
+-   x += 1
+-else:
+-   x *= 2
+-print x
+-</pre>
+*-2
+!-1
+*0
+*1
+*2
+
+@section 15
+# for
+$python
+
+?what get print?
+-<pre>
+-sum = 0
+-for i in range(3):
+-   sum += i
+-print sum
+-</pre>
+*0
+*1
+!3
+*6
+
+?what get print?
+-<pre>
+-sum = 1
+-for i in range(3):
+-   sum *= i
+-print sum
+-</pre>
+!0
+*1
+*2
+*6
+
+?what get print?
+-<pre>
+-sum = 0
+-for i in range(3):
+-   sum *= i
+-print sum
+-</pre>
+!0
+*1
+*2
+*6
+
+@section 16
+# while
+$python
+
+?what get print
+-<pre>
+-nums = [3, 4, 9, 2, 5, 4, 4, 1, 7, 6]
+-sum = index = 0
+-while(sum < 20):
+-   index += 1
+-   sum += nums[index]
+-print sum
+-</pre>
+!20
+*21
+*22
+*23
+*24
+*25
+
+?what get print
+-<pre>
+-nums = [3, 4, 9, 2, 5, 4, 4, 1, 7, 6]
+-sum = index = 0
+-while(sum < 20):
+-   sum += nums[index]
+-   index += 1
+-print sum
+-</pre>
+*20
+*21
+*22
+!23
+*24
+*25
+
+?what get print
+-<pre>
+-nums = [3, 4, 9, 2, 5, 4, 4, 1, 7, 6]
+-sum = index = 0
+-while(sum <= 20):
+-   index += 1
+-   sum += nums[index]
+-print sum
+-</pre>
+*20
+*21
+*22
+*23
+!24
+*25
+
+?what get print
+-<pre>
+-nums = [3, 4, 9, 2, 5, 4, 4, 1, 7, 6]
+-sum = index = 0
+-while(sum <= 20):
+-   sum += nums[index]
+-   index += 1
+-print sum
+-</pre>
+*20
+*21
+*22
+!23
+*24
+*25
+
+@section 17
+# hard question
+$python
+
+?What get print?
+-<pre>
+-array = 'python'
+-lang = array[0]
+-lang.upper()
+-print lang
+-</pre>
+*python
+*PYTHON
+*P
+!p
+
+?What get print?
+-<pre>
+-array = ['python']
+-lang = array[0]
+-lang.upper()
+-print lang
+-</pre>
+!python
+*PYTHON
+*P
+*p
+
+?What get print?
+-<pre>
+-array = 'python'
+-lang = array[0]
+-print lang.upper()
+-</pre>
+*python
+*PYTHON
+!P
+*p
+
+?What get print?
+-<pre>
+-array = ['python']
+-lang = array[0]
+-print lang.upper()
+-</pre>
+*python
+!PYTHON
+*P
+*p
+
+?Which one is reserved word?
+!and
+!del
+!from
+!not
+!while
+!as
+!elif
+!global
+!or
+!with
+!assert
+!else
+!if
+!pass
+!yield
+!break
+!except
+!import
+!print
+!class
+!exec
+!in
+!raise
+!continue
+!finally
+!is
+!return
+!def
+!for
+!lambda
+!try
+*str
+*int
+*var
+*then
+*end
+*elseif
+*switch
+*case
+*new
+*delete
+*catch
+*on
+*var
+
+?Which one is a valid variable name?
+!then
+!end
+!catch
+!throw
+!throws
+!delete
+!new
+!max
+!min
+!local
+!with
+!elseif
+!_1_abc_1
+!URL
+!Int
+!c
+!_
+!A100xC200
+!tab
+!include
+!char
+*Domain-name
+*Hong Kong
+*1_1
+*for
+*@cuhk
+*hi!
+*const
+*continue
+*default
+*do
+*else
+*if
+*return
+*isVaild?
+*a.c
+*hi!
+*var%var
+*HKD$$$
+
+
+?What is the type of the variable?
+-variable = 1+j
+*int
+*float
+!complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = j
+*int
+*float
+!complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 0+0j
+*int
+*float
+!complex
+*str
+*char
+*bool
+*error
+
+?What is the type of the variable?
+-variable = 0.0+0j
+*int
+*float
+!complex
+*str
+*char
+*bool
+*error
+
+?what get print?
+-<pre>print "%2.2f" % 3.14159</pre>
+-(space is replaced by _ here)
+*3.1
+!3.14
+*3.141
+*3.1416
+*3.14159
+*__3.1
+*__3.14
+*__3.141
+*__3.1416
+*__3.14159
+*____3.1
+*____3.14
+*____3.141
+*____3.1416
+*____3.14159
+*______3.1
+*______3.14
+*______3.141
+*______3.1416
+*______3.14159
+
+?what get print?
+-<pre>print "%4.2f" % 3.14159</pre>
+-(space is replaced by _ here)
+*3.1
+!3.14
+*3.141
+*3.1416
+*3.14159
+*__3.1
+*__3.14
+*__3.141
+*__3.1416
+*__3.14159
+*____3.1
+*____3.14
+*____3.141
+*____3.1416
+*____3.14159
+*______3.1
+*______3.14
+*______3.141
+*______3.1416
+*______3.14159
+
+?what get print?
+-<pre>print "%6.2f" % 3.14159</pre>
+-(space is replaced by _ here)
+*3.1
+*3.14
+*3.141
+*3.1416
+*3.14159
+*__3.1
+!__3.14
+*__3.141
+*__3.1416
+*__3.14159
+*____3.1
+*____3.14
+*____3.141
+*____3.1416
+*____3.14159
+*______3.1
+*______3.14
+*______3.141
+*______3.1416
+*______3.14159
+
+?what get print?
+-<pre>print "%2.4f" % 3.14159</pre>
+-(space is replaced by _ here)
+*3.1
+*3.14
+*3.141
+!3.1416
+*3.14159
+*_3.1
+*_3.14
+*_3.141
+*_3.1416
+*_3.14159
+*__3.1
+*__3.14
+*__3.141
+*__3.1416
+*__3.14159
+*____3.1
+*____3.14
+*____3.141
+*____3.1416
+*____3.14159
+
+?what get print?
+-<pre>print "%4.4f" % 3.14159</pre>
+-(space is replaced by _ here)
+*3.1
+*3.14
+*3.141
+!3.1416
+*3.14159
+*_3.1
+*_3.14
+*_3.141
+*_3.1416
+*_3.14159
+*__3.1
+*__3.14
+*__3.141
+*__3.1416
+*__3.14159
+*____3.1
+*____3.14
+*____3.141
+*____3.1416
+*____3.14159
+
+?what get print?
+-<pre>print "%6.4f" % 3.14159</pre>
+-(space is replaced by _ here)
+*3.1
+*3.14
+*3.141
+!3.1416
+*3.14159
+*_3.1
+*_3.14
+*_3.141
+*_3.1416
+*_3.14159
+*__3.1
+*__3.14
+*__3.141
+*__3.1416
+*__3.14159
+*____3.1
+*____3.14
+*____3.141
+*____3.1416
+*____3.14159

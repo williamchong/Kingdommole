@@ -8,15 +8,16 @@ var cls = require("./lib/class"),
     Properties = require("./properties"),
     Formulas = require("./formulas"),
     check = require("./format").check,
-    Types = require("../../shared/js/gametypes")
+    Types = require("../../shared/js/gametypes"),
     bcrypt = require('bcrypt');
 
 module.exports = Player = Character.extend({
-    init: function(connection, worldServer, databaseHandler) {
+    init: function(connection, worldServer, databaseHandler,q) {
         var self = this;
 
         this.server = worldServer;
         this.connection = connection;
+        this.quiz = q;
 
         this._super(this.connection.id, "player", Types.Entities.WARRIOR, 0, 0, "");
 
@@ -43,7 +44,7 @@ module.exports = Player = Character.extend({
         this.connection.listen(function(message) {
             var action = parseInt(message[0]);
 
-            log.debug("Received: "+message);
+            // log.debug("Received: "+message);
             if(!check(message)) {
                 self.connection.close("Invalid "+Types.getMessageTypeAsString(action)+" message format: "+message);
                 return;
@@ -122,7 +123,7 @@ module.exports = Player = Character.extend({
                 self.server.pushSpawnsToPlayer(self, message);
             }
             else if(action === Types.Messages.ZONE) {
-                log.info("ZONE: " + self.name);
+                // log.info("ZONE: " + self.name);
                 self.zone_callback();
             }
             else if(action === Types.Messages.CHAT) {
@@ -137,7 +138,7 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.MOVE) {
-                log.info("MOVE: " + self.name + "(" + message[1] + ", " + message[2] + ")");
+                // log.info("MOVE: " + self.name + "(" + message[1] + ", " + message[2] + ")");
                 if(self.move_callback) {
                     var x = message[1],
                         y = message[2];
@@ -152,7 +153,7 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.LOOTMOVE) {
-                log.info("LOOTMOVE: " + self.name + "(" + message[1] + ", " + message[2] + ")");
+                // log.info("LOOTMOVE: " + self.name + "(" + message[1] + ", " + message[2] + ")");
                 if(self.lootmove_callback) {
                     self.setPosition(message[1], message[2]);
 
@@ -166,13 +167,14 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.AGGRO) {
-                log.info("AGGRO: " + self.name + " " + message[1]);
+                // log.info("AGGRO: " + self.name + " " + message[1]);
                 if(self.move_callback) {
                     self.server.handleMobHate(message[1], self.id, 5);
                 }
             }
             else if(action === Types.Messages.ATTACK) {
-                log.info("ATTACK: " + self.name + " " + message[1]);
+                // This method is going to be removed
+                // log.info("ATTACK: " + self.name + " " + message[1]);
                 var mob = self.server.getEntityById(message[1]);
 
                 if(mob) {
@@ -181,7 +183,7 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.HIT) {
-                log.info("HIT: " + self.name + " " + message[1]);
+                // log.info("HIT: " + self.name + " " + message[1]);
                 var mob = self.server.getEntityById(message[1]);
                 if(mob) {
                     var dmg = Formulas.dmg(self.weaponLevel, mob.armorLevel);
@@ -195,7 +197,7 @@ module.exports = Player = Character.extend({
                     }
                      else {
                       mob.hitPoints -= dmg;
-                      mob.server.handleHurtEntity(mob);
+                      self.server.handleHurtEntity(mob);
                         if(mob.hitPoints <= 0){
                           mob.isDead = true;
                           self.server.pushBroadcast(new Messages.Chat(self, self.name + "M-M-M-MONSTER KILLED" + mob.name));
@@ -204,7 +206,7 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.HURT) {
-                log.info("HURT: " + self.name + " " + message[1]);
+                // log.info("HURT: " + self.name + " " + message[1]);
                 var mob = self.server.getEntityById(message[1]);
                 if(mob && self.hitPoints > 0) {
                     self.hitPoints -= Formulas.dmg(mob.weaponLevel, self.armorLevel);
@@ -219,7 +221,7 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.LOOT) {
-                log.info("LOOT: " + self.name + " " + message[1]);
+                log.info("LOOT: " + self.name + " " + message[1] +' ' + self.x + ' ' + self.y);
                 var item = self.server.getEntityById(message[1]);
 
                 if(item) {
@@ -261,7 +263,7 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.TELEPORT) {
-                log.info("TELEPORT: " + self.name + "(" + message[1] + ", " + message[2] + ")");
+                log.info("TELEPORT: " + self.name + "(" + message[1] + ", " + message[2] + ")" + ' ' + self.x + ' ' + self.y);
                 var x = message[1],
                     y = message[2];
 
@@ -276,14 +278,14 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.OPEN) {
-                log.info("OPEN: " + self.name + " " + message[1]);
+                log.info("OPEN: " + self.name + " " + message[1] + self.x + ' ' + self.y);
                 var chest = self.server.getEntityById(message[1]);
                 if(chest && chest instanceof Chest) {
                     self.server.handleOpenedChest(chest, self);
                 }
             }
             else if(action === Types.Messages.CHECK) {
-                log.info("CHECK: " + self.name + " " + message[1]);
+                log.info("CHECK: " + self.name + " " + message[1] +' '+ self.x + ' ' + self.y);
                 var checkpoint = self.server.map.getCheckpoint(message[1]);
                 if(checkpoint) {
                     self.lastCheckpoint = checkpoint;
@@ -291,7 +293,7 @@ module.exports = Player = Character.extend({
                 }
             }
             else if(action === Types.Messages.INVENTORY){
-                log.info("INVENTORY: " + self.name + " " + message[1] + " " + message[2] + " " + message[3]);
+                log.info("INVENTORY: " + self.name + " " + message[1] + " " + message[2] + " " + message[3] + self.x + ' ' + self.y);
                 var inventoryNumber = message[2],
                     count = message[3];
 
@@ -405,7 +407,61 @@ module.exports = Player = Character.extend({
                 else if(message[1] === Types.Messages.GUILDACTION.TALK) {
                     self.server.pushToGuild(self.getGuild(), new Messages.Guild(Types.Messages.GUILDACTION.TALK, [self.name, self.id, message[2]]));
                 }
+            }
+            else if(action === Types.Messages.QUIZ){
+                if (message[1] == Types.Messages.QUIZACTION.REQUEST){
+                    var mid = message[2];
+                    var mob = self.server.getEntityById(mid);
+                    if(mob && mob.mc >= 0){
+                        var question = self.quiz.getMultipleChoice(mob.mc);
+                        self.send(new Messages.MultipleChoiceQuestion(mid,question).serialize());
+                    } else if(mob && (mob.lq >= 0 || mob.tut >= 0)) {
+                        var problem = self.quiz.getLongQuestion(self, mob);
+                        self.send(new Messages.LongQuestion(problem).serialize());
+                    } else {
+                        log.error('mob question undefined')
+                        var question = self.quiz.getMultipleChoice(0);
+                        self.send(new Messages.MultipleChoiceQuestion(mid,question).serialize());
+                    }
+                }else if(message[1] == Types.Messages.QUIZACTION.POSTCHOICE){
+                    //check answer and send back
+                    var mid = message[2]
+                    var sid = message[3];
+                    var qid = message[4];
+                    var choice = message[5];
+                    log.info('MC: '+ self.name + ' ' + self.x + ' ' + self.y);
+                    var result = self.quiz.checkMultipleChoice(sid, qid, choice);
+                    // tell player to attack
+                    if(result){
+                        // fail
+                        var mob = self.server.getEntityById(mid);
+                        if(mob) {
+                            self.setTarget(mob);
+                            self.server.broadcastAttacker(self);
+                        }
+                    } else {
+                        var mob = self.server.getEntityById(mid);
+                        if(mob && self.hitPoints > 0) {
+                            self.hitPoints -= Formulas.dmg(mob.weaponLevel, self.armorLevel);
+                            self.server.handleHurtEntity(self);
+
+                            if(self.hitPoints <= 0) {
+                                self.isDead = true;
+                                if(self.firepotionTimeout) {
+                                    clearTimeout(self.firepotionTimeout);
+                                }
+                            }
+                        }
+                    }
+                    self.send(new Messages.MultipleChoiceResult(mid,sid,qid,result).serialize());
+                }else if(message[1] == Types.Messages.QUIZACTION.POSTCODE){
+                    // run docker to check code
+                    var code = message[2];
+                    var language = message[3];
+                    self.quiz.checkLongQuestion(self.name, code, language);
+                }
             } else {
+                log.error('fail');
                 if(self.message_callback) {
                     self.message_callback(message);
                 }
@@ -716,4 +772,62 @@ module.exports = Player = Character.extend({
 
     },
 
+    handleLongQuestionResult: function(r, record){
+        var mob = record.mob;
+        r.mid = mob.id;
+        log.info('LQ: ' + this.name + ' ' + this.x + ' ' + this.y);
+        log.info('LQR: ' + JSON.stringify(r));
+        // add tutorial
+        if (record.type == 'tutorial'){
+            if (! r.stdout) {
+                r.stdout = ''
+            }
+            if (! r.stderr) {
+                r.stderr = ''
+            }
+            var flg = record.question.checker(r.stdout, r.stderr);
+            if(flg !== true){
+                r.hint = flg;
+                if(mob && this.hitPoints > 0) {
+                    this.hitPoints -= 5*Formulas.dmg(mob.weaponLevel, this.armorLevel);
+                    this.server.handleHurtEntity(this);
+                    if(this.hitPoints <= 0) {
+                        this.isDead = true;
+                        if(this.firepotionTimeout) {
+                            clearTimeout(this.firepotionTimeout);
+                        }
+                    }
+                }
+            }
+        } else {
+            var results = r.result;
+            var flg = true;
+            for (var i = 0; i < results.length; ++i){
+                var result = results[i];
+                // log.error(result);
+                if(result != 'Accept'){
+                    flg = false;
+                    if(mob && this.hitPoints > 0) {
+                        this.hitPoints -= Formulas.dmg(mob.weaponLevel, this.armorLevel);
+                        this.server.handleHurtEntity(this);
+                        if(this.hitPoints <= 0) {
+                            this.isDead = true;
+                            if(this.firepotionTimeout) {
+                                clearTimeout(this.firepotionTimeout);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        // we must use === true here
+        this.send(new Messages.LongQuestionResult(r).serialize());
+        if(flg === true){
+            if(mob) {
+                this.setTarget(mob);
+                this.server.broadcastAttacker(this);
+            }
+        }
+        
+    }
 });

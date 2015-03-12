@@ -1,3 +1,4 @@
+// message handler defined here
 
 define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory, BISON) {
 
@@ -14,6 +15,7 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
             this.fail_callback = null;
 
             this.notify_callback = null;
+             this.receiveMultipleChoice_callback = null;
 
             this.handlers = [];
             this.handlers[Types.Messages.WELCOME] = this.receiveWelcome;
@@ -38,7 +40,9 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
             this.handlers[Types.Messages.GUILDERROR] = this.receiveGuildError;
             this.handlers[Types.Messages.GUILD] = this.receiveGuild;
             this.handlers[Types.Messages.PVP] = this.receivePVP;
-            this.useBison = false;
+            // register
+            this.handlers[Types.Messages.QUIZ] = this.receiveQuiz;
+           this.useBison = false;
             this.enable();
         },
 
@@ -56,7 +60,8 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
 
             log.info("Trying to connect to server : "+url);
 
-           this.connection = io(url, {forceNew: true, reconnection: false});// This sets the connection as a socket.io Socket.
+            this.connection = io(url, {forceNew: true, reconnection: false});
+ // This sets the connection as a socket.io Socket.
 
             if(dispatcherMode) {
                 this.connection.on('message', function(e) {
@@ -388,7 +393,7 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
                 this.blink_callback(id);
             }
         },
-         receivePVP: function(data){
+        receivePVP: function(data){
             var pvp = data[1];
             if(this.pvp_callback){
                 this.pvp_callback(pvp);
@@ -430,7 +435,7 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
 				this.guildpopulation_callback(data[2], data[3]);//name, count
 			}
 			else if( (data[1] === Types.Messages.GUILDACTION.JOIN) &&
-				this.guildjoin_callback){				
+				this.guildjoin_callback){
 					this.guildjoin_callback(data[2], data[3], data[4], data[5]);//name, (id, (guildId, guildName))
 			}
 			else if( (data[1] === Types.Messages.GUILDACTION.LEAVE) &&
@@ -696,7 +701,52 @@ define(['player', 'entityfactory', 'lib/bison'], function(Player, EntityFactory,
 		
 		sendLeaveGuild: function(){
 			this.sendMessage([Types.Messages.GUILD, Types.Messages.GUILDACTION.LEAVE]);
-		}
+		},
+
+        sendQuestionRequest: function(mid){
+            this.sendMessage([Types.Messages.QUIZ, Types.Messages.QUIZACTION.REQUEST,mid]);   
+        },
+        sendMultipleChoiceAnswer: function(mid,sid,qid,option){
+            this.sendMessage([Types.Messages.QUIZ, Types.Messages.QUIZACTION.POSTCHOICE, mid, sid, qid, option]);
+        },
+
+        receiveQuiz: function(data){
+            data.shift();
+            if (data[0] === Types.Messages.QUIZACTION.POSTMC && this.receiveMultipleChoice_callback) {
+                // need to define the parameters
+                data.shift();
+                this.receiveMultipleChoice_callback(data.shift());
+            } else if (data[0] === Types.Messages.QUIZACTION.MCRESULT && this.receiveMultipleChoiceResult_callback) {
+                data.shift();
+                this.receiveMultipleChoiceResult_callback(data);
+            } else if(data[0] === Types.Messages.QUIZACTION.POSTLQ && this.receiveLongQuestion_callback){
+                data.shift();
+                this.receiveLongQuestion_callback(data.shift());
+            } else if(data[0] === Types.Messages.QUIZACTION.LQRESULT && this.receiveLongQuestionResult_callback){
+                data.shift();
+                this.receiveLongQuestionResult_callback(data.shift());            
+            }
+            else{console.log('undefine quiz');
+            }
+        },
+        onReceiveMultipleChoice: function(callback){
+            this.receiveMultipleChoice_callback = callback;
+        },
+        onReceiveMultipleChoiceResult: function(callback){
+            this.receiveMultipleChoiceResult_callback = callback;
+        },
+        sendLongQuestionAnswer: function(code, language){
+            //TODO send mid, section id, question id
+            this.sendMessage([Types.Messages.QUIZ, Types.Messages.QUIZACTION.POSTCODE,code,language]);
+        },
+        
+        onReceiveLongQuestion: function(callback){
+            this.receiveLongQuestion_callback = callback;
+        },
+        onReceiveLongQuestionResult: function(callback){
+            this.receiveLongQuestionResult_callback = callback;
+        },
+        
     });
 
     return GameClient;

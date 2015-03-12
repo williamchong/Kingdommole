@@ -1,3 +1,9 @@
+// map.js define door, collision tile and plateau tile.
+// There tiles which do not involve game logic is define in renderer.js 
+// read map.json and tileset.png
+// If useWorker, then map will be load in other thread
+// doors created here
+// collision tile and plateau tile created here
 
 define(['jquery', 'area'], function($, Area) {
 
@@ -25,6 +31,7 @@ define(['jquery', 'area'], function($, Area) {
             }
         },
 
+        // read map json file
         _loadMap: function(useWorker) {
             var self = this,
                 filepath = "maps/world_client.json";
