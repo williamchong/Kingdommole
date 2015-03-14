@@ -10,7 +10,11 @@ See the LICENSE file for details.
 
 Credits
 -------
-Originally created by [Little Workshop](http://www.littleworkshop.fr):
+Kingdommole Quiz and Level Design:
+William Chong
+Sunday Ku
+
+BrowserQuest Originally created by [Little Workshop](http://www.littleworkshop.fr):
 
 * Franck Lecollinet - [@whatthefranck](http://twitter.com/whatthefranck)
 * Guillaume Lecollinet - [@glecollinet](http://twitter.com/glecollinet)
