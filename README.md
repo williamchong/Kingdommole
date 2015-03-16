@@ -11,8 +11,8 @@ See the LICENSE file for details.
 Credits
 -------
 Kingdommole Quiz and Level Design:
-William Chong
-Sunday Ku
+* Sunday Ku
+* William Chong
 
 BrowserQuest Originally created by [Little Workshop](http://www.littleworkshop.fr):
 
